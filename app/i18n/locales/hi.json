@@ -1,0 +1,96 @@
+{
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "add": "जोड़ें",
+    "back": "वापस",
+    "next": "अगला",
+    "done": "हो गया"
+  },
+  "auth": {
+    "title": "एग्रीसेंस",
+    "subtitle": "स्मार्ट खेती आसान बनाएं",
+    "phoneNumber": "फोन नंबर",
+    "enterPhone": "अपना फोन नंबर दर्ज करें",
+    "otpCode": "OTP कोड",
+    "enterOtp": "अपने फोन पर भेजे गए 6-अंकीय कोड को दर्ज करें",
+    "verifyOtp": "OTP सत्यापित करें",
+    "resendOtp": "OTP पुनः भेजें",
+    "farmerId": "किसान आईडी",
+    "welcome": "स्वागत है"
+  },
+  "home": {
+    "title": "होम",
+    "myFields": "मेरे खेत",
+    "scanFarm": "खेत स्कैन करें",
+    "soilAnalysis": "मिट्टी विश्लेषण",
+    "cropSuggestions": "फसल सुझाव",
+    "alerts": "अलर्ट",
+    "reports": "रिपोर्ट्स",
+    "settings": "सेटिंग्स"
+  },
+  "fields": {
+    "title": "मेरे खेत",
+    "addField": "खेत जोड़ें",
+    "noFields": "अभी तक कोई खेत नहीं। अपना पहला खेत जोड़ें!",
+    "fieldName": "खेत का नाम",
+    "area": "क्षेत्रफल",
+    "crop": "फसल",
+    "lastScan": "अंतिम स्कैन"
+  },
+  "scan": {
+    "title": "खेत स्कैन करें",
+    "startScan": "स्कैन शुरू करें",
+    "stopScan": "स्कैन रोकें",
+    "scanning": "स्कैन हो रहा है...",
+    "area": "क्षेत्रफल",
+    "saveField": "खेत सहेजें"
+  },
+  "soil": {
+    "title": "मिट्टी विश्लेषण",
+    "connectDevice": "डिवाइस कनेक्ट करें",
+    "scanning": "मिट्टी स्कैन हो रही है...",
+    "results": "मिट्टी परिणाम",
+    "ph": "pH",
+    "nitrogen": "नाइट्रोजन (N)",
+    "phosphorus": "फॉस्फोरस (P)",
+    "potassium": "पोटैशियम (K)",
+    "moisture": "नमी",
+    "score": "मिट्टी स्कोर"
+  },
+  "suggestions": {
+    "title": "फसल सुझाव",
+    "topCrops": "आपके खेत के लिए शीर्ष फसलें",
+    "confidence": "विश्वास",
+    "acceptSuggestion": "सुझाव स्वीकार करें",
+    "reasoning": "यह फसल क्यों?"
+  },
+  "alerts": {
+    "title": "अलर्ट और सुझाव",
+    "noAlerts": "इस समय कोई अलर्ट नहीं",
+    "weather": "मौसम अलर्ट",
+    "irrigation": "सिंचाई की आवश्यकता",
+    "soil": "मिट्टी अलर्ट"
+  },
+  "reports": {
+    "title": "रिपोर्ट्स",
+    "generateReport": "रिपोर्ट बनाएं",
+    "selectField": "खेत चुनें",
+    "dateRange": "दिनांक सीमा",
+    "export": "निर्यात",
+    "share": "साझा करें"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "units": "इकाइयां",
+    "sync": "डेटा सिंक करें",
+    "about": "के बारे में"
+  }
+}
+

@@ -1,0 +1,108 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "back": "Back",
+    "next": "Next",
+    "done": "Done"
+  },
+  "auth": {
+    "title": "AgriSense",
+    "subtitle": "Smart Farming Made Simple",
+    "phoneNumber": "Phone Number",
+    "enterPhone": "Enter your phone number",
+    "otpCode": "OTP Code",
+    "enterOtp": "Enter the 6-digit code sent to your phone",
+    "verifyOtp": "Verify OTP",
+    "resendOtp": "Resend OTP",
+    "farmerId": "Farmer ID",
+    "welcome": "Welcome"
+  },
+  "home": {
+    "title": "Home",
+    "myFields": "My Fields",
+    "scanFarm": "Scan Farm",
+    "soilAnalysis": "Soil Analysis",
+    "cropSuggestions": "Crop Suggestions",
+    "alerts": "Alerts",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "fields": {
+    "title": "My Fields",
+    "addField": "Add Field",
+    "noFields": "No fields yet. Add your first field!",
+    "fieldName": "Field Name",
+    "area": "Area",
+    "crop": "Crop",
+    "lastScan": "Last Scan"
+  },
+  "scan": {
+    "title": "Scan Farm",
+    "startScan": "Start Scan",
+    "stopScan": "Stop Scan",
+    "scanning": "Scanning...",
+    "area": "Area",
+    "saveField": "Save Field",
+    "tracking": "Tracking",
+    "distance": "Distance",
+    "points": "Points",
+    "clearAll": "Clear All Points",
+    "saving": "Saving...",
+    "invalidField": "Invalid Field",
+    "notEnoughPoints": "Please scan at least 3 points to create a field",
+    "fieldSaved": "Field saved successfully!",
+    "fieldSavedOffline": "Field saved locally but failed to sync to server. It will sync when you have internet connection.",
+    "saveError": "Failed to save field",
+    "gpsError": "GPS Error",
+    "startError": "Failed to start GPS tracking"
+  },
+  "soil": {
+    "title": "Soil Analysis",
+    "connectDevice": "Connect Device",
+    "scanning": "Scanning Soil...",
+    "results": "Soil Results",
+    "ph": "pH",
+    "nitrogen": "Nitrogen (N)",
+    "phosphorus": "Phosphorus (P)",
+    "potassium": "Potassium (K)",
+    "moisture": "Moisture",
+    "score": "Soil Score"
+  },
+  "suggestions": {
+    "title": "Crop Suggestions",
+    "topCrops": "Top Crops for Your Field",
+    "confidence": "Confidence",
+    "acceptSuggestion": "Accept Suggestion",
+    "reasoning": "Why this crop?"
+  },
+  "alerts": {
+    "title": "Alerts & Tips",
+    "noAlerts": "No alerts at the moment",
+    "weather": "Weather Alert",
+    "irrigation": "Irrigation Needed",
+    "soil": "Soil Alert"
+  },
+  "reports": {
+    "title": "Reports",
+    "generateReport": "Generate Report",
+    "selectField": "Select Field",
+    "dateRange": "Date Range",
+    "export": "Export",
+    "share": "Share"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "units": "Units",
+    "sync": "Sync Data",
+    "about": "About"
+  }
+}
+

@@ -1,147 +1,204 @@
-# AgriSense - Smart Farming Made Simple
+# 🌱 AgriSense - Smart Farming Mobile App
 
-A React Native mobile application that helps farmers make data-backed decisions using GPS field scanning, soil analysis, and crop recommendations.
+A comprehensive React Native mobile application for smart farming, featuring GPS field mapping, soil analysis, crop disease detection, and market price tracking.
 
-## 🌱 Features
+## 🚀 Features
 
-### ✅ Implemented Features
+### Core Functionality
+- **GPS Field Mapping** - Interactive tutorial for field boundary scanning
+- **Real-time Area Calculation** - Automatic field area calculation using shoelace formula
+- **Soil Analysis** - Integration with BLE soil sensors for pH, nutrients, and moisture
+- **Crop Disease Detection** - AI-powered disease identification using image analysis
+- **Market Price Tracking** - Real-time crop prices and market trends
+- **Offline-First Architecture** - Works without internet connection
+- **Multi-language Support** - English and Hindi translations
 
-- **GPS Field Scanning** - Walk around your field boundary to create accurate field maps
-- **Real-time Area Calculation** - Live polygon area calculation as you scan
-- **Field Management** - Save and manage multiple fields with Supabase backend
-- **Offline-First Architecture** - Works without internet, syncs when online
-- **Multi-language Support** - English and Hindi support
-- **Modern UI/UX** - Clean, farmer-friendly interface
+### Technical Features
+- **React Native with Expo** - Cross-platform mobile development
+- **TypeScript** - Type-safe development
+- **Zustand State Management** - Lightweight state management
+- **Supabase Backend** - PostgreSQL database with real-time subscriptions
+- **React Navigation** - Stack and tab navigation
+- **Animated UI** - Smooth animations and transitions
+- **Error Handling** - Comprehensive error boundaries and fallbacks
 
-### 🚧 Planned Features
+## 📱 Screens
 
-- Soil Analysis with Hardware Integration
-- Crop Suggestions based on Soil Data
-- Weather Alerts and Irrigation Recommendations
-- Report Generation and Export
-- Advanced Analytics Dashboard
+### Authentication
+- **AuthScreen** - Phone number OTP-based authentication
 
-## 🛠 Tech Stack
+### Tutorial Flow
+- **TutorialIntroScreen** - Multi-slide onboarding carousel
+- **TutorialGPSScreen** - Interactive GPS mapping tutorial
+- **SimpleTutorial** - Simplified tutorial version
 
-- **Frontend**: React Native with Expo
-- **Backend**: Supabase (PostgreSQL + Real-time APIs)
-- **State Management**: Zustand
-- **Navigation**: React Navigation
-- **Maps**: Custom GPS tracking implementation
-- **Internationalization**: i18next
+### Main App
+- **DashboardScreen** - Main dashboard with field overview
+- **FieldsScreen** - Field management and listing
+- **MyFarmScreen** - Farm management and soil analysis
+- **CropDiseaseScreen** - Disease detection and analysis
+- **MarketScreen** - Market prices and trends
+- **AlertsScreen** - Weather and irrigation alerts
+- **ReportsScreen** - Report generation and export
+- **SettingsScreen** - App configuration and preferences
 
-## 📱 Screenshots
+## 🛠️ Tech Stack
 
-*Screenshots will be added once the app is deployed*
+### Frontend
+- **React Native** - Mobile app framework
+- **Expo** - Development platform and tools
+- **TypeScript** - Type-safe JavaScript
+- **React Navigation** - Navigation library
+- **Zustand** - State management
+- **React Native Animated** - Animation library
+- **Expo Vector Icons** - Icon library
+
+### Backend
+- **Supabase** - Backend-as-a-Service
+- **PostgreSQL** - Database
+- **Row Level Security (RLS)** - Data security
+- **Real-time subscriptions** - Live data updates
+
+### Development Tools
+- **Metro** - JavaScript bundler
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Git** - Version control
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js (v16 or higher)
+- npm or yarn
 - Expo CLI
-- iOS Simulator or Android Emulator
-- Supabase account
+- iOS Simulator or Android Emulator (for development)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Anikketsingh/agri_sense.git
-   cd agri_sense
+   cd agri_sense/app
    ```
 
 2. **Install dependencies**
    ```bash
-   cd app
    npm install
    ```
 
-3. **Set up Supabase**
-   - Create a new project at [supabase.com](https://supabase.com)
-   - Run the SQL schema from `app/database/schema.sql` in your Supabase SQL editor
-   - Update the Supabase configuration in `app/lib/supabase.ts` with your project URL and API key
-
-4. **Start the development server**
+3. **Set up environment variables**
    ```bash
-   npx expo start
+   cp .env.example .env
+   ```
+   Add your Supabase credentials to `.env`:
+   ```
+   EXPO_PUBLIC_SUPABASE_URL=your_supabase_url
+   EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
-5. **Run on device/simulator**
-   - Press `i` for iOS simulator
-   - Press `a` for Android emulator
-   - Scan QR code with Expo Go app on your phone
+4. **Set up Supabase database**
+   - Follow the instructions in `SUPABASE_SETUP.md`
+   - Run the SQL schema from `database/schema.sql`
 
-## 🗄 Database Schema
+5. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-The app uses Supabase with the following main tables:
-
-- **farmers** - User profiles and authentication
-- **fields** - Field boundaries stored as GeoJSON polygons
-- **soil_scans** - Soil analysis data from hardware sensors
-- **suggestions** - AI-powered crop and irrigation recommendations
-- **alerts** - Weather and field condition alerts
-- **reports** - Generated field reports and analytics
-
-## 🗺 Field Scanning Feature
-
-The core feature allows farmers to:
-
-1. **Start GPS Tracking** - Tap "Start Scan" to begin walking around field boundary
-2. **Real-time Visualization** - See live polygon formation and area calculation
-3. **Manual Editing** - Add/remove points manually if needed
-4. **Field Naming** - Name your field with suggestions
-5. **Save to Database** - Store field data locally and sync to Supabase
-
-### Technical Implementation
-
-- **GPS Tracking**: Custom hook using Expo Location API
-- **Polygon Calculation**: Shoelace formula for accurate area calculation
-- **GeoJSON Storage**: Standard format for geographic data
-- **Offline Support**: Local storage with background sync
-
-## 🌍 Internationalization
-
-Currently supports:
-- English (en)
-- Hindi (hi)
-
-Adding new languages:
-1. Create new locale file in `app/i18n/locales/`
-2. Add to resources in `app/i18n/simple.ts`
-3. Update language selector in settings
+6. **Run on device/simulator**
+   ```bash
+   npm run ios     # iOS
+   npm run android # Android
+   ```
 
 ## 📁 Project Structure
 
 ```
 app/
 ├── components/          # Reusable UI components
-│   ├── Button.tsx
-│   ├── FieldMap.tsx
-│   ├── FieldNameModal.tsx
-│   └── Input.tsx
-├── hooks/              # Custom React hooks
-│   ├── useGPSTracking.ts
-│   └── useI18n.ts
-├── lib/                # Utilities and configurations
-│   ├── geoUtils.ts     # Geographic calculations
-│   ├── supabase.ts     # Database client
-│   └── utils.ts        # General utilities
-├── screens/            # App screens
-│   ├── Scan/           # Field scanning
-│   ├── Fields/         # Field management
-│   ├── Home/           # Dashboard
-│   └── ...
-├── services/           # API services
-│   ├── FieldService.ts
-│   └── ...
-├── store/              # State management
-│   ├── fieldsStore.ts
-│   └── authStore.ts
-├── i18n/               # Internationalization
-└── database/           # Database schemas
-    └── schema.sql
+├── screens/            # Screen components
+│   ├── Auth/          # Authentication screens
+│   ├── Tutorial/      # Tutorial and onboarding
+│   ├── Dashboard/     # Main dashboard
+│   ├── Fields/        # Field management
+│   ├── MyFarm/        # Farm management
+│   ├── CropDisease/   # Disease detection
+│   ├── Market/        # Market prices
+│   ├── Alerts/        # Alerts and notifications
+│   ├── Reports/       # Reports and exports
+│   └── Settings/      # App settings
+├── navigation/         # Navigation configuration
+├── store/             # Zustand state stores
+├── services/          # API and business logic
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions
+├── i18n/              # Internationalization
+├── database/          # Database schema
+└── assets/            # Images and static files
 ```
+
+## 🔧 Configuration
+
+### Supabase Setup
+1. Create a new Supabase project
+2. Run the SQL schema from `database/schema.sql`
+3. Set up Row Level Security policies
+4. Configure environment variables
+
+### Environment Variables
+- `EXPO_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+- `EXPO_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anonymous key
+
+## 📱 Features in Detail
+
+### GPS Field Mapping
+- Interactive tutorial with step-by-step guidance
+- Real-time GPS point recording
+- Automatic polygon formation
+- Area calculation using shoelace formula
+- Visual feedback with animations
+
+### Soil Analysis
+- BLE sensor integration
+- Real-time pH, nutrient, and moisture readings
+- Historical data tracking
+- Recommendations based on soil health
+
+### Crop Disease Detection
+- Image capture and analysis
+- AI-powered disease identification
+- Treatment recommendations
+- Historical disease tracking
+
+### Market Integration
+- Real-time crop price updates
+- Market trend analysis
+- Price alerts and notifications
+- Export functionality
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Metro bundler cache issues**
+   ```bash
+   npx expo start --clear
+   ```
+
+2. **React hooks order violations**
+   - Ensure all hooks are called at the top level
+   - No conditional hook calls
+   - Consistent hook order on every render
+
+3. **Supabase connection issues**
+   - Check environment variables
+   - Verify Supabase project configuration
+   - Check network connectivity
+
+4. **Navigation errors**
+   - Ensure proper navigation setup
+   - Check screen component exports
+   - Verify navigation stack configuration
 
 ## 🤝 Contributing
 
@@ -155,19 +212,35 @@ app/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 👥 Team
 
-- Expo team for the amazing React Native platform
-- Supabase for the backend infrastructure
-- React Native community for excellent libraries
-- Farmers who provided feedback and requirements
+- **Aniket Singh** - Lead Developer
+- **AgriSense Team** - Smart Farming Solutions
 
-## 📞 Contact
+## 📞 Support
 
-- **Developer**: Anikket Singh
-- **GitHub**: [@Anikketsingh](https://github.com/Anikketsingh)
-- **Project Link**: [https://github.com/Anikketsingh/agri_sense](https://github.com/Anikketsingh/agri_sense)
+For support, email support@agrisense.com or create an issue in the GitHub repository.
+
+## 🗺️ Roadmap
+
+### Phase 1 (Current)
+- ✅ GPS field mapping
+- ✅ Basic soil analysis
+- ✅ Crop disease detection
+- ✅ Market price tracking
+
+### Phase 2 (Upcoming)
+- 🔄 Advanced analytics dashboard
+- 🔄 Weather integration
+- 🔄 Irrigation recommendations
+- 🔄 Supply chain tracking
+
+### Phase 3 (Future)
+- 🔄 Machine learning predictions
+- 🔄 IoT sensor integration
+- 🔄 Blockchain integration
+- 🔄 Advanced reporting
 
 ---
 
-**Made with ❤️ for farmers worldwide**
+**Built with ❤️ for farmers by the AgriSense team**

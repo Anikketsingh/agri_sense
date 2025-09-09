@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 
 interface Farmer {
   id: string;
@@ -18,22 +17,16 @@ interface AuthState {
   updateFarmer: (updates: Partial<Farmer>) => void;
 }
 
-export const useAuthStore = create<AuthState>()(
-  persist(
-    (set) => ({
-      isAuthenticated: false,
-      farmer: null,
-      token: null,
-      login: (farmer, token) => set({ isAuthenticated: true, farmer, token }),
-      logout: () => set({ isAuthenticated: false, farmer: null, token: null }),
-      updateFarmer: (updates) =>
-        set((state) => ({
-          farmer: state.farmer ? { ...state.farmer, ...updates } : null,
-        })),
-    }),
-    {
-      name: 'auth-storage',
-    }
-  )
-);
+// Temporary simple store without persist to avoid initialization issues
+export const useAuthStore = create<AuthState>((set) => ({
+  isAuthenticated: false,
+  farmer: null,
+  token: null,
+  login: (farmer, token) => set({ isAuthenticated: true, farmer, token }),
+  logout: () => set({ isAuthenticated: false, farmer: null, token: null }),
+  updateFarmer: (updates) =>
+    set((state) => ({
+      farmer: state.farmer ? { ...state.farmer, ...updates } : null,
+    })),
+}));
 

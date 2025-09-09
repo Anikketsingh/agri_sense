@@ -10,7 +10,8 @@
     "add": "जोड़ें",
     "back": "वापस",
     "next": "अगला",
-    "done": "हो गया"
+    "done": "हो गया",
+    "seeAll": "सभी देखें"
   },
   "auth": {
     "title": "एग्रीसेंस",
@@ -33,6 +34,90 @@
     "alerts": "अलर्ट",
     "reports": "रिपोर्ट्स",
     "settings": "सेटिंग्स"
+  },
+  "dashboard": {
+    "welcome": "एग्रीसेंस में आपका स्वागत है",
+    "myFarm": "मेरा खेत",
+    "myFarmSubtitle": "खेत प्रबंधन, मिट्टी विश्लेषण और फसलें",
+    "cropDisease": "फसल रोग",
+    "cropDiseaseSubtitle": "AI से रोगों की पहचान करें",
+    "market": "बाजार",
+    "marketSubtitle": "कीमतें और रुझान देखें",
+    "recentFields": "हाल के खेत",
+    "noFieldsTitle": "अभी तक कोई खेत नहीं",
+    "noFieldsSubtitle": "व्यक्तिगत फसल सुझाव पाने के लिए अपना पहला खेत स्कैन करें",
+    "addFirstField": "अपना पहला खेत जोड़ें"
+  },
+  "myFarm": {
+    "title": "मेरा खेत",
+    "selectField": "खेत चुनें",
+    "noFields": "कोई खेत उपलब्ध नहीं। शुरुआत करने के लिए अपना पहला खेत जोड़ें।",
+    "addFirstField": "अपना पहला खेत जोड़ें",
+    "soilAnalysis": "मिट्टी विश्लेषण",
+    "withSensor": "सेंसर के साथ",
+    "withSensorSubtitle": "रियल-टाइम रीडिंग के लिए BLE मिट्टी सेंसर कनेक्ट करें",
+    "withoutSensor": "सेंसर के बिना",
+    "withoutSensorSubtitle": "मिट्टी के पैरामीटर मैन्युअल इनपुट",
+    "monitoringTools": "मॉनिटरिंग टूल्स",
+    "fertilizerMonitor": "उर्वरक मॉनिटर",
+    "fertilizerMonitorSubtitle": "उर्वरक उपयोग और सुझाव ट्रैक करें",
+    "irrigationMonitor": "सिंचाई मॉनिटर",
+    "irrigationMonitorSubtitle": "पानी का उपयोग और सिंचाई अनुसूची मॉनिटर करें",
+    "yieldPrediction": "उपज पूर्वानुमान",
+    "yieldPredictionSubtitle": "AI-संचालित उपज पूर्वानुमान"
+  },
+  "cropDisease": {
+    "title": "फसल रोग पहचान",
+    "instructionsTitle": "कैसे उपयोग करें",
+    "instructionsText": "प्रभावित पौधे की पत्तियों की एक स्पष्ट तस्वीर लें और हमारी AI इसे रोगों के लिए विश्लेषण करेगी।",
+    "selectImage": "छवि चुनें",
+    "noImageSelected": "कोई छवि नहीं चुनी गई",
+    "takePhoto": "फोटो लें",
+    "selectFromGallery": "गैलरी से",
+    "analyzeImage": "छवि का विश्लेषण करें",
+    "analyzing": "विश्लेषण हो रहा है...",
+    "results": "विश्लेषण परिणाम",
+    "noResultsYet": "अभी तक कोई विश्लेषण परिणाम नहीं। शुरुआत करने के लिए एक छवि अपलोड करें।",
+    "commonDiseases": "सामान्य रोग"
+  },
+  "market": {
+    "title": "बाजार कीमतें",
+    "searchPlaceholder": "फसलें खोजें...",
+    "currentPrices": "वर्तमान कीमतें",
+    "marketNews": "बाजार समाचार",
+    "newsComingSoon": "बाजार समाचार और रुझान जल्द आ रहे हैं!"
+  },
+  "tutorial": {
+    "welcome": "एग्रीसेंस में आपका स्वागत है",
+    "welcomeDescription": "आपका स्मार्ट खेती साथी जो बेहतर फसल उपज के लिए डेटा-संचालित निर्णय लेने में मदद करता है।",
+    "mapFields": "अपने खेतों को मैप करें",
+    "mapFieldsDescription": "सटीक खेत मानचित्र बनाने के लिए अपने खेत की सीमाओं के चारों ओर चलें।",
+    "analyzeSoil": "मिट्टी की सेहत का विश्लेषण करें",
+    "analyzeSoilDescription": "pH, पोषक तत्वों और नमी के स्तर की रियल-टाइम रीडिंग के लिए मिट्टी सेंसर कनेक्ट करें।",
+    "getSuggestions": "स्मार्ट सुझाव प्राप्त करें",
+    "getSuggestionsDescription": "अपने खेत के डेटा के आधार पर AI-संचालित फसल सुझाव और खेती सलाह प्राप्त करें।",
+    "features": {
+      "gpsMapping": "GPS खेत मैपिंग",
+      "soilAnalysis": "मिट्टी विश्लेषण",
+      "cropRecommendations": "फसल सुझाव",
+      "marketPrices": "बाजार कीमतें"
+    },
+    "gpsTutorial": {
+      "startTracking": "GPS ट्रैकिंग शुरू करें",
+      "startTrackingDescription": "अपनी खेत की सीमा रिकॉर्ड करना शुरू करने के लिए \"स्कैन शुरू करें\" बटन दबाएं।",
+      "walkField": "अपने खेत के चारों ओर चलें",
+      "walkFieldDescription": "अपने खेत की परिधि के चारों ओर धीरे-धीरे चलें। ऐप आपके चलने पर स्वचालित रूप से बिंदु रिकॉर्ड करेगा।",
+      "watchArea": "लाइव क्षेत्रफल गणना देखें",
+      "watchAreaDescription": "जैसे-जैसे आप चलते हैं, खेत का क्षेत्रफल रियल-टाइम में गणना होते देखें। बहुभुज स्वचालित रूप से बनेगा।",
+      "stopSave": "रोकें और सहेजें",
+      "stopSaveDescription": "जब आप सीमा पूरी कर लें तो \"स्कैन रोकें\" दबाएं, फिर अपने खेत को एक नाम के साथ सहेजें।"
+    },
+    "next": "अगला",
+    "skip": "छोड़ें",
+    "getStarted": "शुरू करें",
+    "complete": "पूरा करें",
+    "skipTutorial": "ट्यूटोरियल छोड़ें",
+    "skipConfirm": "क्या आप वाकई GPS ट्यूटोरियल छोड़ना चाहते हैं? आप इसे बाद में सेटिंग्स से एक्सेस कर सकते हैं।"
   },
   "fields": {
     "title": "मेरे खेत",

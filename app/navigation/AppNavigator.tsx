@@ -5,8 +5,14 @@ import { Ionicons } from '@expo/vector-icons';
 
 // Import screens
 import AuthScreen from '../screens/Auth/AuthScreen';
+import TutorialIntroScreen from '../screens/Tutorial/TutorialIntroScreen';
+import TutorialGPSScreen from '../screens/Tutorial/SimpleTutorial';
+import DashboardScreen from '../screens/Dashboard/DashboardScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import FieldsScreen from '../screens/Fields/FieldsScreen';
+import MyFarmScreen from '../screens/MyFarm/MyFarmScreen';
+import CropDiseaseScreen from '../screens/CropDisease/CropDiseaseScreen';
+import MarketScreen from '../screens/Market/MarketScreen';
 import ScanScreen from '../screens/Scan/ScanScreen';
 import SoilScreen from '../screens/Soil/SoilScreen';
 import SuggestionsScreen from '../screens/Suggestions/SuggestionsScreen';
@@ -14,8 +20,9 @@ import AlertsScreen from '../screens/Alerts/AlertsScreen';
 import ReportsScreen from '../screens/Reports/ReportsScreen';
 import SettingsScreen from '../screens/Settings/SettingsScreen';
 
-// Import store
+// Import stores
 import { useAuthStore } from '../store/authStore';
+import { useTutorialStore } from '../store/tutorialStore';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,7 +54,7 @@ function MainTabs() {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={DashboardScreen} />
       <Tab.Screen name="Fields" component={FieldsScreen} />
       <Tab.Screen name="Alerts" component={AlertsScreen} />
       <Tab.Screen name="Reports" component={ReportsScreen} />
@@ -58,14 +65,35 @@ function MainTabs() {
 // Root Stack Navigator
 export default function AppNavigator() {
   const { isAuthenticated } = useAuthStore();
+  const { isTutorialCompleted } = useTutorialStore();
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {!isAuthenticated ? (
         <Stack.Screen name="Auth" component={AuthScreen} />
+      ) : !isTutorialCompleted ? (
+        <>
+          <Stack.Screen name="TutorialIntro" component={TutorialIntroScreen} />
+          <Stack.Screen name="TutorialGPS" component={TutorialGPSScreen} />
+        </>
       ) : (
         <>
           <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen 
+            name="MyFarm" 
+            component={MyFarmScreen}
+            options={{ presentation: 'modal' }}
+          />
+          <Stack.Screen 
+            name="CropDisease" 
+            component={CropDiseaseScreen}
+            options={{ presentation: 'modal' }}
+          />
+          <Stack.Screen 
+            name="Market" 
+            component={MarketScreen}
+            options={{ presentation: 'modal' }}
+          />
           <Stack.Screen 
             name="Scan" 
             component={ScanScreen}

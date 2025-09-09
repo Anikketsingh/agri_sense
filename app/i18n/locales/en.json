@@ -10,7 +10,8 @@
     "add": "Add",
     "back": "Back",
     "next": "Next",
-    "done": "Done"
+    "done": "Done",
+    "seeAll": "See All"
   },
   "auth": {
     "title": "AgriSense",
@@ -33,6 +34,90 @@
     "alerts": "Alerts",
     "reports": "Reports",
     "settings": "Settings"
+  },
+  "dashboard": {
+    "welcome": "Welcome to AgriSense",
+    "myFarm": "My Farm",
+    "myFarmSubtitle": "Manage fields, soil analysis & crops",
+    "cropDisease": "Crop Disease",
+    "cropDiseaseSubtitle": "Identify diseases with AI",
+    "market": "Market",
+    "marketSubtitle": "Check prices & trends",
+    "recentFields": "Recent Fields",
+    "noFieldsTitle": "No Fields Yet",
+    "noFieldsSubtitle": "Start by scanning your first field to get personalized crop recommendations",
+    "addFirstField": "Add Your First Field"
+  },
+  "myFarm": {
+    "title": "My Farm",
+    "selectField": "Select Field",
+    "noFields": "No fields available. Add your first field to get started.",
+    "addFirstField": "Add Your First Field",
+    "soilAnalysis": "Soil Analysis",
+    "withSensor": "With Sensor",
+    "withSensorSubtitle": "Connect BLE soil sensor for real-time readings",
+    "withoutSensor": "Without Sensor",
+    "withoutSensorSubtitle": "Manual input of soil parameters",
+    "monitoringTools": "Monitoring Tools",
+    "fertilizerMonitor": "Fertilizer Monitor",
+    "fertilizerMonitorSubtitle": "Track fertilizer usage and recommendations",
+    "irrigationMonitor": "Irrigation Monitor",
+    "irrigationMonitorSubtitle": "Monitor water usage and irrigation schedule",
+    "yieldPrediction": "Yield Prediction",
+    "yieldPredictionSubtitle": "AI-powered yield forecasting"
+  },
+  "cropDisease": {
+    "title": "Crop Disease Detection",
+    "instructionsTitle": "How to use",
+    "instructionsText": "Take a clear photo of the affected plant leaves and our AI will analyze it for diseases.",
+    "selectImage": "Select Image",
+    "noImageSelected": "No image selected",
+    "takePhoto": "Take Photo",
+    "selectFromGallery": "From Gallery",
+    "analyzeImage": "Analyze Image",
+    "analyzing": "Analyzing...",
+    "results": "Analysis Results",
+    "noResultsYet": "No analysis results yet. Upload an image to get started.",
+    "commonDiseases": "Common Diseases"
+  },
+  "market": {
+    "title": "Market Prices",
+    "searchPlaceholder": "Search crops...",
+    "currentPrices": "Current Prices",
+    "marketNews": "Market News",
+    "newsComingSoon": "Market news and trends coming soon!"
+  },
+  "tutorial": {
+    "welcome": "Welcome to AgriSense",
+    "welcomeDescription": "Your smart farming companion that helps you make data-driven decisions for better crop yields.",
+    "mapFields": "Map Your Fields",
+    "mapFieldsDescription": "Walk around your field boundaries to create accurate field maps with real-time area calculation.",
+    "analyzeSoil": "Analyze Soil Health",
+    "analyzeSoilDescription": "Connect soil sensors to get real-time readings of pH, nutrients, and moisture levels.",
+    "getSuggestions": "Get Smart Suggestions",
+    "getSuggestionsDescription": "Receive AI-powered crop recommendations and farming advice based on your field data.",
+    "features": {
+      "gpsMapping": "GPS Field Mapping",
+      "soilAnalysis": "Soil Analysis",
+      "cropRecommendations": "Crop Recommendations",
+      "marketPrices": "Market Prices"
+    },
+    "gpsTutorial": {
+      "startTracking": "Start GPS Tracking",
+      "startTrackingDescription": "Tap the \"Start Scan\" button to begin recording your field boundary.",
+      "walkField": "Walk Around Your Field",
+      "walkFieldDescription": "Walk slowly around the perimeter of your field. The app will automatically record points as you move.",
+      "watchArea": "Watch Live Area Calculation",
+      "watchAreaDescription": "See the field area calculated in real-time as you walk. The polygon will form automatically.",
+      "stopSave": "Stop and Save",
+      "stopSaveDescription": "Tap \"Stop Scan\" when you complete the boundary, then save your field with a name."
+    },
+    "next": "Next",
+    "skip": "Skip",
+    "getStarted": "Get Started",
+    "complete": "Complete",
+    "skipTutorial": "Skip Tutorial",
+    "skipConfirm": "Are you sure you want to skip the GPS tutorial? You can always access it later from settings."
   },
   "fields": {
     "title": "My Fields",

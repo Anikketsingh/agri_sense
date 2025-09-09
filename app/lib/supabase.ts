@@ -1,9 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = 'https://fmbuvqsvoweclddqvecd.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtYnV2cXN2b3dlY2xkZHF2ZWNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxNDQwMDAsImV4cCI6MjA1MTcyMDAwMH0.Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8';
+// Supabase configuration - Replace with your actual credentials
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || 'https://your-project.supabase.co';
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'your-anon-key';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Check if Supabase is properly configured
+const isSupabaseConfigured = supabaseUrl !== 'https://your-project.supabase.co' && 
+                            supabaseAnonKey !== 'your-anon-key';
+
+export const supabase = isSupabaseConfigured 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
+
+// Helper function to check if Supabase is available
+export const isSupabaseAvailable = () => supabase !== null;
 
 // Database types
 export interface Database {

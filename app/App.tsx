@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import './i18n'; // Initialize i18n
+// import './i18n'; // Initialize i18n - temporarily disabled
 import AppNavigator from './navigation/AppNavigator';
 
 // Create a client

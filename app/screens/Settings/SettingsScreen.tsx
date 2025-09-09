@@ -11,10 +11,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useI18n } from '../../hooks/useI18n';
 import { useAuthStore } from '../../store/authStore';
+import { useTutorialStore } from '../../store/tutorialStore';
 
 export default function SettingsScreen() {
   const { t, changeLanguage, currentLanguage } = useI18n();
   const { farmer, logout } = useAuthStore();
+  const { resetTutorial } = useTutorialStore();
   const [isMetricUnits, setIsMetricUnits] = useState(true);
   const [autoSync, setAutoSync] = useState(true);
   const [notifications, setNotifications] = useState(true);
@@ -27,6 +29,24 @@ export default function SettingsScreen() {
 
   const handleSyncData = () => {
     Alert.alert('Sync Data', 'Syncing your data with the server...');
+  };
+
+  const handleResetTutorial = () => {
+    Alert.alert(
+      'Reset Tutorial',
+      'This will reset the tutorial and show it again on next app launch. Continue?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Reset',
+          style: 'destructive',
+          onPress: () => {
+            resetTutorial();
+            Alert.alert('Tutorial Reset', 'Tutorial has been reset. It will show again on next app launch.');
+          },
+        },
+      ]
+    );
   };
 
   const handleLogout = () => {
@@ -147,6 +167,12 @@ export default function SettingsScreen() {
                   thumbColor={autoSync ? '#fff' : '#f4f3f4'}
                 />
               }
+            />
+            <SettingItem
+              icon="school-outline"
+              title="Reset Tutorial"
+              subtitle="Show tutorial again on next launch"
+              onPress={handleResetTutorial}
             />
           </View>
         </View>
@@ -302,4 +328,5 @@ const styles = StyleSheet.create({
     color: '#D32F2F',
   },
 });
+
 

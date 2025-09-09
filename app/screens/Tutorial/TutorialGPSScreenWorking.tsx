@@ -1,0 +1,733 @@
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions, Alert } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { useTutorialStore } from '../../store/tutorialStore';
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+
+interface TutorialStep {
+  id: string;
+  title: string;
+  description: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  color: string;
+  action: string;
+  buttonText: string;
+}
+
+interface DemoPoint {
+  id: string;
+  x: number;
+  y: number;
+  timestamp: number;
+}
+
+const tutorialSteps: TutorialStep[] = [
+  {
+    id: '1',
+    title: 'Start GPS Tracking',
+    description: 'Tap the "Start Scan" button to begin recording your field boundary.',
+    icon: 'play-circle',
+    color: '#2E7D32',
+    action: 'start',
+    buttonText: 'Start Scan',
+  },
+  {
+    id: '2',
+    title: 'Add Boundary Points',
+    description: 'Keep tapping "Add Point" to place GPS markers around your field. You need at least 3 points to create a boundary.',
+    icon: 'add-circle',
+    color: '#1976D2',
+    action: 'add_points',
+    buttonText: 'Add Point',
+  },
+  {
+    id: '3',
+    title: 'Watch Live Area Calculation',
+    description: 'See the field area calculated in real-time as you add points. The polygon forms automatically.',
+    icon: 'calculator',
+    color: '#7B1FA2',
+    action: 'calculate',
+    buttonText: 'Calculate Area',
+  },
+  {
+    id: '4',
+    title: 'Complete and Save',
+    description: 'When you have enough points, tap "Complete Scan" to finish and save your field.',
+    icon: 'checkmark-circle',
+    color: '#D32F2F',
+    action: 'complete',
+    buttonText: 'Complete Scan',
+  },
+];
+
+export default function TutorialGPSScreenWorking() {
+  // All hooks at the top
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isScanning, setIsScanning] = useState(false);
+  const [demoPoints, setDemoPoints] = useState<DemoPoint[]>([]);
+  const [calculatedArea, setCalculatedArea] = useState(0);
+  const [isPolygonComplete, setIsPolygonComplete] = useState(false);
+
+  // Navigation and store
+  const navigation = useNavigation();
+  const { setGPSCompleted } = useTutorialStore();
+
+  // Animation values
+  const pointAnimation = useRef(new Animated.Value(0)).current;
+  const polygonAnimation = useRef(new Animated.Value(0)).current;
+  const areaAnimation = useRef(new Animated.Value(0)).current;
+
+  // Current step data
+  const currentStepData = tutorialSteps[currentStep];
+
+  // Predefined demo points
+  const predefinedPoints = [
+    { x: 80, y: 180 },
+    { x: 180, y: 140 },
+    { x: 280, y: 160 },
+    { x: 320, y: 220 },
+    { x: 300, y: 320 },
+    { x: 220, y: 360 },
+    { x: 140, y: 340 },
+    { x: 100, y: 280 },
+  ];
+
+  // Helper functions
+  const calculatePolygonArea = (points: DemoPoint[]) => {
+    if (points.length < 3) return 0;
+    let area = 0;
+    for (let i = 0; i < points.length; i++) {
+      const j = (i + 1) % points.length;
+      area += points[i].x * points[j].y;
+      area -= points[j].x * points[i].y;
+    }
+    return Math.abs(area) / 2;
+  };
+
+  const convertToAcres = (areaInSquareMeters: number) => {
+    return (areaInSquareMeters / 4046.86).toFixed(2);
+  };
+
+  // Event handlers
+  const handleStartScan = useCallback(() => {
+    setIsScanning(true);
+    setDemoPoints([]);
+    setCalculatedArea(0);
+    setIsPolygonComplete(false);
+    
+    Animated.timing(pointAnimation, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  }, [pointAnimation]);
+
+  const handleAddPoint = useCallback(() => {
+    if (!isScanning || demoPoints.length >= predefinedPoints.length) return;
+    
+    const nextPoint = predefinedPoints[demoPoints.length];
+    const newPoint: DemoPoint = {
+      id: `point_${Date.now()}`,
+      x: nextPoint.x,
+      y: nextPoint.y,
+      timestamp: Date.now(),
+    };
+    
+    const newPoints = [...demoPoints, newPoint];
+    setDemoPoints(newPoints);
+    
+    // Animate point appearance
+    Animated.sequence([
+      Animated.timing(pointAnimation, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(pointAnimation, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+    ]).start();
+    
+    // Calculate area
+    if (newPoints.length >= 2) {
+      const area = calculatePolygonArea(newPoints);
+      setCalculatedArea(area);
+      
+      Animated.timing(areaAnimation, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: true,
+      }).start();
+    }
+    
+    // Check if polygon is complete
+    if (newPoints.length >= 7) {
+      setIsPolygonComplete(true);
+      Animated.timing(polygonAnimation, {
+        toValue: 1,
+        duration: 1500,
+        useNativeDriver: true,
+      }).start();
+      
+      setTimeout(() => {
+        setCurrentStep(prev => prev + 1);
+      }, 2000);
+    }
+  }, [isScanning, demoPoints, predefinedPoints, pointAnimation, areaAnimation, polygonAnimation, calculatePolygonArea]);
+
+  const handleCalculateArea = useCallback(() => {
+    if (demoPoints.length < 3) return;
+    
+    const area = calculatePolygonArea(demoPoints);
+    setCalculatedArea(area);
+    
+    Animated.timing(areaAnimation, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [demoPoints, calculatePolygonArea, areaAnimation]);
+
+  const handleCompleteScan = useCallback(() => {
+    if (demoPoints.length < 3) {
+      Alert.alert('Not Enough Points', 'Add at least 3 points to create a field boundary.');
+      return;
+    }
+    
+    setIsScanning(false);
+    Alert.alert(
+      'Field Saved!',
+      `Your field has been saved with an area of ${convertToAcres(calculatedArea)} acres.`,
+      [{ text: 'OK', onPress: () => setCurrentStep(prev => prev + 1) }]
+    );
+  }, [demoPoints.length, calculatedArea, convertToAcres]);
+
+  const handleNext = useCallback(() => {
+    const currentStepData = tutorialSteps[currentStep];
+    if (!currentStepData) return;
+    
+    switch (currentStepData.action) {
+      case 'start':
+        handleStartScan();
+        setTimeout(() => {
+          setCurrentStep(prev => prev + 1);
+        }, 500);
+        break;
+      case 'add_points':
+        handleAddPoint();
+        break;
+      case 'calculate':
+        handleCalculateArea();
+        setTimeout(() => {
+          setCurrentStep(prev => prev + 1);
+        }, 1000);
+        break;
+      case 'complete':
+        handleCompleteScan();
+        break;
+    }
+  }, [currentStep, handleStartScan, handleAddPoint, handleCalculateArea, handleCompleteScan]);
+
+  const handlePrevious = useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  }, [currentStep]);
+
+  const handleComplete = useCallback(() => {
+    setGPSCompleted(true);
+    navigation.navigate('MainTabs' as never);
+  }, [setGPSCompleted, navigation]);
+
+  const handleSkip = useCallback(() => {
+    Alert.alert(
+      'Skip Tutorial',
+      'Are you sure you want to skip the GPS tutorial? You can always access it later from settings.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Skip', onPress: handleComplete },
+      ]
+    );
+  }, [handleComplete]);
+
+  return (
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={handlePrevious}>
+          <Ionicons name="chevron-back" size={24} color="#6c757d" />
+        </TouchableOpacity>
+        
+        <View style={styles.progressContainer}>
+          <View style={styles.progressBar}>
+            <View 
+              style={[
+                styles.progressFill, 
+                { width: `${((currentStep + 1) / tutorialSteps.length) * 100}%` }
+              ]} 
+            />
+          </View>
+          <Text style={styles.progressText}>
+            {currentStep + 1} of {tutorialSteps.length}
+          </Text>
+        </View>
+        
+        <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
+          <Text style={styles.skipButtonText}>Skip</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Content */}
+      <View style={styles.content}>
+        {/* Step Info */}
+        <View style={styles.stepInfo}>
+          <View style={[styles.stepIcon, { backgroundColor: currentStepData.color + '20' }]}>
+            <Ionicons name={currentStepData.icon} size={40} color={currentStepData.color} />
+          </View>
+          
+          <Text style={styles.stepTitle}>{currentStepData.title}</Text>
+          <Text style={styles.stepDescription}>{currentStepData.description}</Text>
+          
+          {/* Progress indicator for add points step */}
+          {currentStepData.action === 'add_points' && (
+            <View style={styles.progressInfo}>
+              <Text style={styles.progressText}>
+                Points: {demoPoints.length}/8 • Need at least 3 for boundary
+              </Text>
+              <View style={styles.progressBar}>
+                <View 
+                  style={[
+                    styles.progressFill, 
+                    { width: `${(demoPoints.length / 8) * 100}%` }
+                  ]} 
+                />
+              </View>
+            </View>
+          )}
+        </View>
+
+        {/* Map Demo */}
+        <View style={styles.mapContainer}>
+          <View style={styles.mapBackground}>
+            {/* Grid Lines */}
+            <View style={styles.grid}>
+              {Array.from({ length: 8 }, (_, i) => (
+                <View key={`v-${i}`} style={[styles.gridLine, { left: (i * 50) + 50 }]} />
+              ))}
+              {Array.from({ length: 6 }, (_, i) => (
+                <View key={`h-${i}`} style={[styles.gridLine, { top: (i * 50) + 100, left: 50, width: 300, height: 1 }]} />
+              ))}
+            </View>
+
+            {/* Demo Points */}
+            {demoPoints.map((point, index) => (
+              <Animated.View
+                key={point.id}
+                style={[
+                  styles.demoPoint,
+                  {
+                    left: point.x - 12,
+                    top: point.y - 12,
+                    transform: [
+                      {
+                        scale: pointAnimation.interpolate({
+                          inputRange: [0, 1],
+                          outputRange: [0, 1],
+                        }),
+                      },
+                    ],
+                  },
+                ]}
+              >
+                <Ionicons name="location" size={24} color="#2E7D32" />
+                <View style={styles.pointNumber}>
+                  <Text style={styles.pointNumberText}>{index + 1}</Text>
+                </View>
+              </Animated.View>
+            ))}
+
+            {/* Polygon Lines */}
+            {demoPoints.length >= 2 && (
+              <Animated.View
+                style={[
+                  styles.polygonContainer,
+                  {
+                    opacity: polygonAnimation,
+                  },
+                ]}
+              >
+                {demoPoints.map((point, index) => {
+                  const nextPoint = demoPoints[(index + 1) % demoPoints.length];
+                  if (index === demoPoints.length - 1 && !isPolygonComplete) return null;
+                  
+                  const angle = Math.atan2(
+                    nextPoint.y - point.y,
+                    nextPoint.x - point.x
+                  );
+                  const distance = Math.sqrt(
+                    Math.pow(nextPoint.x - point.x, 2) + Math.pow(nextPoint.y - point.y, 2)
+                  );
+                  
+                  return (
+                    <View
+                      key={`line-${index}`}
+                      style={[
+                        styles.polygonLine,
+                        {
+                          left: point.x,
+                          top: point.y,
+                          width: distance,
+                          transform: [{ rotate: `${angle}rad` }],
+                        },
+                      ]}
+                    />
+                  );
+                })}
+              </Animated.View>
+            )}
+
+            {/* Area Display */}
+            {calculatedArea > 0 && (
+              <Animated.View
+                style={[
+                  styles.areaDisplay,
+                  {
+                    opacity: areaAnimation,
+                  },
+                ]}
+              >
+                <Text style={styles.areaText}>
+                  {convertToAcres(calculatedArea)} acres
+                </Text>
+              </Animated.View>
+            )}
+
+            {/* Scanning Indicator */}
+            {isScanning && (
+              <View style={styles.scanningIndicator}>
+                <Animated.View style={styles.scanningDot} />
+                <Text style={styles.scanningText}>GPS Tracking Active</Text>
+              </View>
+            )}
+          </View>
+        </View>
+
+        {/* Demo Stats */}
+        <View style={styles.demoStats}>
+          <View style={styles.statItem}>
+            <Text style={styles.statLabel}>Points Added</Text>
+            <Text style={styles.statValue}>{demoPoints.length}</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Text style={styles.statLabel}>Acres</Text>
+            <Text style={styles.statValue}>{convertToAcres(calculatedArea)}</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Text style={styles.statLabel}>Complete</Text>
+            <Text style={styles.statValue}>{isPolygonComplete ? 'Yes' : 'No'}</Text>
+          </View>
+        </View>
+
+        {/* Action Buttons */}
+        <View style={styles.actionButtons}>
+          <TouchableOpacity
+            style={[
+              styles.demoButton,
+              { 
+                backgroundColor: currentStepData.color,
+                opacity: (isScanning || currentStep === 0) ? 1 : 0.5,
+              }
+            ]}
+            onPress={handleNext}
+            disabled={!isScanning && currentStep > 0}
+          >
+            <Ionicons 
+              name={
+                currentStepData.action === 'start' ? 'play' :
+                currentStepData.action === 'add_points' ? 'add' :
+                currentStepData.action === 'calculate' ? 'calculator' :
+                'checkmark'
+              } 
+              size={20} 
+              color="white" 
+            />
+            <Text style={styles.demoButtonText}>
+              {currentStepData.buttonText}
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Navigation Buttons */}
+        <View style={styles.navigationButtons}>
+          <TouchableOpacity
+            style={[styles.navButton, { opacity: currentStep === 0 ? 0.5 : 1 }]}
+            onPress={handlePrevious}
+            disabled={currentStep === 0}
+          >
+            <Ionicons name="chevron-back" size={20} color="#6c757d" />
+            <Text style={styles.navButtonText}>Previous</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity
+            style={[styles.navButton, { backgroundColor: '#2E7D32' }]}
+            onPress={handleNext}
+          >
+            <Text style={styles.navButtonText}>
+              {currentStep === tutorialSteps.length - 1 
+                ? 'Complete' 
+                : 'Next'
+              }
+            </Text>
+            <Ionicons 
+              name={currentStep === tutorialSteps.length - 1 ? 'checkmark' : 'chevron-forward'} 
+              size={20} 
+              color="white" 
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f8f9fa',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e9ecef',
+  },
+  backButton: {
+    padding: 8,
+  },
+  progressContainer: {
+    flex: 1,
+    alignItems: 'center',
+    marginHorizontal: 20,
+  },
+  progressBar: {
+    height: 4,
+    backgroundColor: '#e9ecef',
+    borderRadius: 2,
+    width: '100%',
+    marginBottom: 8,
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#2E7D32',
+    borderRadius: 2,
+  },
+  progressText: {
+    fontSize: 12,
+    color: '#6c757d',
+    fontWeight: '500',
+  },
+  skipButton: {
+    padding: 8,
+  },
+  skipButtonText: {
+    color: '#6c757d',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  content: {
+    flex: 1,
+    padding: 20,
+  },
+  stepInfo: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  stepIcon: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  stepTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#212529',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  stepDescription: {
+    fontSize: 16,
+    color: '#6c757d',
+    textAlign: 'center',
+    lineHeight: 24,
+    maxWidth: 300,
+  },
+  progressInfo: {
+    marginTop: 16,
+    width: '100%',
+    maxWidth: 300,
+  },
+  mapContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    marginBottom: 20,
+    overflow: 'hidden',
+  },
+  mapBackground: {
+    flex: 1,
+    backgroundColor: '#f8f9fa',
+    position: 'relative',
+  },
+  grid: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  gridLine: {
+    position: 'absolute',
+    backgroundColor: '#e9ecef',
+    width: 1,
+    height: '100%',
+  },
+  demoPoint: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pointNumber: {
+    position: 'absolute',
+    top: -8,
+    right: -8,
+    backgroundColor: '#2E7D32',
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  pointNumberText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  polygonContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  polygonLine: {
+    position: 'absolute',
+    height: 2,
+    backgroundColor: '#2E7D32',
+  },
+  areaDisplay: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    backgroundColor: 'rgba(46, 125, 50, 0.9)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+  },
+  areaText: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  scanningIndicator: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(46, 125, 50, 0.9)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+  },
+  scanningDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#4CAF50',
+    marginRight: 8,
+  },
+  scanningText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  demoStats: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: 'white',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 20,
+  },
+  statItem: {
+    alignItems: 'center',
+  },
+  statLabel: {
+    fontSize: 12,
+    color: '#6c757d',
+    marginBottom: 4,
+  },
+  statValue: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2E7D32',
+  },
+  actionButtons: {
+    marginBottom: 20,
+  },
+  demoButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+  },
+  demoButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+    marginLeft: 8,
+  },
+  navigationButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  navButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#e9ecef',
+  },
+  navButtonText: {
+    fontSize: 16,
+    fontWeight: '500',
+    marginHorizontal: 8,
+    color: '#6c757d',
+  },
+});

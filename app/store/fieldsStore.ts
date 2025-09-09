@@ -20,6 +20,7 @@ interface FieldsState {
   deleteField: (id: string) => void;
   getFieldById: (id: string) => Field | undefined;
   fetchFields: (farmerId: string) => Promise<void>;
+  refreshFields: (farmerId: string) => Promise<void>;
   syncFieldToServer: (field: Field) => Promise<boolean>;
 }
 
@@ -57,6 +58,18 @@ export const useFieldsStore = create<FieldsState>((set, get) => ({
     } catch (error) {
       set({ 
         error: error instanceof Error ? error.message : 'Failed to fetch fields',
+        loading: false 
+      });
+    }
+  },
+  
+  refreshFields: async (farmerId: string) => {
+    try {
+      const fields = await fieldService.getFields(farmerId);
+      set({ fields, loading: false, error: null });
+    } catch (error) {
+      set({ 
+        error: error instanceof Error ? error.message : 'Failed to refresh fields',
         loading: false 
       });
     }

@@ -1,4 +1,4 @@
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseAvailable } from '../lib/supabase';
 import { calculatePolygonArea, validatePolygon, createGeoJSONPolygon } from '../lib/geoUtils';
 
 // FieldService - Handles field management and GPS operations with Supabase
@@ -14,6 +14,24 @@ export class FieldService {
       // Validate polygon
       if (!validatePolygon(fieldData.polygonGeoJSON.geometry.coordinates[0])) {
         return { success: false, message: 'Invalid polygon data' };
+      }
+
+      // Check if Supabase is available
+      if (!isSupabaseAvailable()) {
+        console.warn('Supabase not configured, field saved locally only');
+        return {
+          success: true,
+          field: {
+            id: `local_${Date.now()}`,
+            farmerId: fieldData.farmerId,
+            name: fieldData.name,
+            polygonGeoJSON: fieldData.polygonGeoJSON,
+            area_m2: fieldData.area_m2,
+            crop: fieldData.crop,
+            createdAt: new Date().toISOString(),
+          },
+          message: 'Field saved locally (Supabase not configured)',
+        };
       }
 
       // Insert field into Supabase
@@ -57,6 +75,12 @@ export class FieldService {
 
   async getFields(farmerId: string): Promise<any[]> {
     try {
+      // Check if Supabase is available
+      if (!isSupabaseAvailable()) {
+        console.warn('Supabase not configured, returning empty fields array');
+        return [];
+      }
+
       const { data, error } = await supabase
         .from('fields')
         .select('*')
@@ -85,6 +109,12 @@ export class FieldService {
 
   async updateField(fieldId: string, updates: any): Promise<{ success: boolean; message: string }> {
     try {
+      // Check if Supabase is available
+      if (!isSupabaseAvailable()) {
+        console.warn('Supabase not configured, field update skipped');
+        return { success: false, message: 'Supabase not configured' };
+      }
+
       const updateData: any = {};
       
       if (updates.name) updateData.name = updates.name;
@@ -113,6 +143,12 @@ export class FieldService {
 
   async deleteField(fieldId: string): Promise<{ success: boolean; message: string }> {
     try {
+      // Check if Supabase is available
+      if (!isSupabaseAvailable()) {
+        console.warn('Supabase not configured, field deletion skipped');
+        return { success: false, message: 'Supabase not configured' };
+      }
+
       const { error } = await supabase
         .from('fields')
         .delete()

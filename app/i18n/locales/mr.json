@@ -1,0 +1,192 @@
+{
+  "common": {
+    "loading": "लोड होत आहे...",
+    "error": "त्रुटी",
+    "success": "यश",
+    "cancel": "रद्द करा",
+    "save": "जतन करा",
+    "delete": "हटवा",
+    "edit": "संपादन",
+    "add": "जोडा",
+    "back": "मागे",
+    "next": "पुढे",
+    "done": "झाले",
+    "seeAll": "सर्व पहा"
+  },
+  "auth": {
+    "title": "एग्रीसेन्स",
+    "subtitle": "स्मार्ट शेती सोपी करा",
+    "phoneNumber": "फोन नंबर",
+    "enterPhone": "आपला फोन नंबर टाका",
+    "otpCode": "OTP कोड",
+    "enterOtp": "आपल्या फोनवर पाठवलेला 6-अंकी कोड टाका",
+    "verifyOtp": "OTP सत्यापित करा",
+    "resendOtp": "OTP पुन्हा पाठवा",
+    "farmerId": "शेतकरी ID",
+    "welcome": "स्वागत"
+  },
+  "home": {
+    "title": "होम",
+    "myFields": "माझी शेतजमिनी",
+    "scanFarm": "शेत स्कॅन करा",
+    "soilAnalysis": "माती विश्लेषण",
+    "cropSuggestions": "पिकाच्या सूचना",
+    "alerts": "अलर्ट्स",
+    "reports": "अहवाल",
+    "settings": "सेटिंग्ज"
+  },
+  "dashboard": {
+    "welcome": "एग्रीसेन्समध्ये आपले स्वागत",
+    "myFarm": "माझे शेत",
+    "myFarmSubtitle": "शेतजमिनी व्यवस्थापन, माती विश्लेषण आणि पिके",
+    "cropDisease": "पिकाचा रोग",
+    "cropDiseaseSubtitle": "AI सह रोग ओळखा",
+    "market": "बाजार",
+    "marketSubtitle": "किंमती आणि प्रवृत्ती पहा",
+    "recentFields": "अलीकडील शेतजमिनी",
+    "noFieldsTitle": "अजून शेतजमिनी नाहीत",
+    "noFieldsSubtitle": "वैयक्तिक पिकाच्या सूचना मिळवण्यासाठी आपली पहिली शेतजमीन स्कॅन करा",
+    "addFirstField": "आपली पहिली शेतजमीन जोडा"
+  },
+  "myFarm": {
+    "title": "माझे शेत",
+    "selectField": "शेतजमीन निवडा",
+    "noFields": "शेतजमिनी उपलब्ध नाहीत. सुरुवात करण्यासाठी आपली पहिली शेतजमीन जोडा.",
+    "addFirstField": "आपली पहिली शेतजमीन जोडा",
+    "soilAnalysis": "माती विश्लेषण",
+    "withSensor": "सेन्सरसह",
+    "withSensorSubtitle": "रिअल-टाइम रीडिंगसाठी BLE माती सेन्सर कनेक्ट करा",
+    "withoutSensor": "सेन्सरशिवाय",
+    "withoutSensorSubtitle": "मातीचे पॅरामीटर मॅन्युअल इनपुट",
+    "monitoringTools": "मॉनिटरिंग टूल्स",
+    "fertilizerMonitor": "खत मॉनिटर",
+    "fertilizerMonitorSubtitle": "खत वापर आणि सूचना ट्रॅक करा",
+    "irrigationMonitor": "सिंचन मॉनिटर",
+    "irrigationMonitorSubtitle": "पाणी वापर आणि सिंचन वेळापत्रक मॉनिटर करा",
+    "yieldPrediction": "उत्पादन अंदाज",
+    "yieldPredictionSubtitle": "AI-आधारित उत्पादन अंदाज"
+  },
+  "cropDisease": {
+    "title": "पिकाचा रोग ओळख",
+    "instructionsTitle": "कसे वापरायचे",
+    "instructionsText": "संक्रमित वनस्पतीच्या पानांची स्पष्ट फोटो घ्या आणि आमचे AI ते रोगांसाठी विश्लेषण करेल.",
+    "selectImage": "इमेज निवडा",
+    "noImageSelected": "कोणतीही इमेज निवडलेली नाही",
+    "takePhoto": "फोटो घ्या",
+    "selectFromGallery": "गॅलरीमधून",
+    "analyzeImage": "इमेजचे विश्लेषण करा",
+    "analyzing": "विश्लेषण होत आहे...",
+    "results": "विश्लेषण परिणाम",
+    "noResultsYet": "अजून विश्लेषण परिणाम नाहीत. सुरुवात करण्यासाठी इमेज अपलोड करा.",
+    "commonDiseases": "सामान्य रोग"
+  },
+  "market": {
+    "title": "बाजार किंमती",
+    "searchPlaceholder": "पिके शोधा...",
+    "currentPrices": "सध्याच्या किंमती",
+    "marketNews": "बाजार बातम्या",
+    "newsComingSoon": "बाजार बातम्या आणि प्रवृत्ती लवकरच येत आहेत!"
+  },
+  "tutorial": {
+    "welcome": "एग्रीसेन्समध्ये आपले स्वागत",
+    "welcomeDescription": "आपला स्मार्ट शेती सहकारी जो चांगल्या पिकाच्या उत्पादनासाठी डेटा-आधारित निर्णय घेण्यात मदत करतो.",
+    "mapFields": "आपल्या शेतजमिनी मॅप करा",
+    "mapFieldsDescription": "अचूक शेतजमीन मॅप तयार करण्यासाठी आपल्या शेतजमिनीच्या सीमांभोवती चाला.",
+    "analyzeSoil": "मातीचे आरोग्य विश्लेषण करा",
+    "analyzeSoilDescription": "pH, पोषक तत्वे आणि आर्द्रता पातळीच्या रिअल-टाइम रीडिंगसाठी माती सेन्सर कनेक्ट करा.",
+    "getSuggestions": "स्मार्ट सूचना मिळवा",
+    "getSuggestionsDescription": "आपल्या शेतजमीन डेटावर आधारित AI-आधारित पिकाच्या सूचना आणि शेती सल्ले मिळवा.",
+    "features": {
+      "gpsMapping": "GPS शेतजमीन मॅपिंग",
+      "soilAnalysis": "माती विश्लेषण",
+      "cropRecommendations": "पिकाच्या सूचना",
+      "marketPrices": "बाजार किंमती"
+    },
+    "gpsTutorial": {
+      "startTracking": "GPS ट्रॅकिंग सुरू करा",
+      "startTrackingDescription": "आपल्या शेतजमिनीची सीमा रेकॉर्ड करणे सुरू करण्यासाठी \"स्कॅन सुरू करा\" बटण टॅप करा.",
+      "walkField": "आपल्या शेतजमिनीभोवती चाला",
+      "walkFieldDescription": "आपल्या शेतजमिनीच्या परिघाभोवती हळूवारपणे चाला. आपण चालत असताना अॅप स्वयंचलितपणे पॉइंट्स रेकॉर्ड करेल.",
+      "watchArea": "लाइव्ह क्षेत्र गणना पहा",
+      "watchAreaDescription": "आपण चालत असताना शेतजमिनीचे क्षेत्र रिअल-टाइममध्ये गणना होत असताना पहा. बहुभुज स्वयंचलितपणे तयार होईल.",
+      "stopSave": "थांबवा आणि जतन करा",
+      "stopSaveDescription": "जेव्हा आपण सीमा पूर्ण कराल तेव्हा \"स्कॅन थांबवा\" टॅप करा, नंतर नावासह आपली शेतजमीन जतन करा."
+    },
+    "next": "पुढे",
+    "skip": "वगळा",
+    "getStarted": "सुरुवात करा",
+    "complete": "पूर्ण",
+    "skipTutorial": "ट्यूटोरियल वगळा",
+    "skipConfirm": "तुम्हाला GPS ट्यूटोरियल वगळायचे आहे याची खात्री आहे? तुम्ही ते नंतर सेटिंग्जमधून प्रवेश करू शकता."
+  },
+  "fields": {
+    "title": "माझ्या शेतजमिनी",
+    "addField": "शेतजमीन जोडा",
+    "noFields": "अजून शेतजमिनी नाहीत. आपली पहिली शेतजमीन जोडा!",
+    "fieldName": "शेतजमिनीचे नाव",
+    "area": "क्षेत्र",
+    "crop": "पीक",
+    "lastScan": "शेवटचा स्कॅन"
+  },
+  "scan": {
+    "title": "शेत स्कॅन करा",
+    "startScan": "स्कॅन सुरू करा",
+    "stopScan": "स्कॅन थांबवा",
+    "scanning": "स्कॅन होत आहे...",
+    "area": "क्षेत्र",
+    "saveField": "शेतजमीन जतन करा",
+    "tracking": "ट्रॅकिंग",
+    "distance": "अंतर",
+    "points": "पॉइंट्स",
+    "clearAll": "सर्व पॉइंट्स साफ करा",
+    "saving": "जतन होत आहे...",
+    "invalidField": "अवैध शेतजमीन",
+    "notEnoughPoints": "शेतजमीन तयार करण्यासाठी किमान 3 पॉइंट्स स्कॅन करा",
+    "fieldSaved": "शेतजमीन यशस्वीरित्या जतन झाली!",
+    "fieldSavedOffline": "शेतजमीन स्थानिकरित्या जतन झाली पण सर्व्हरवर सिंक करण्यात अयशस्वी. इंटरनेट कनेक्शन असल्यावर ती सिंक होईल.",
+    "saveError": "शेतजमीन जतन करण्यात अयशस्वी",
+    "gpsError": "GPS त्रुटी",
+    "startError": "GPS ट्रॅकिंग सुरू करण्यात अयशस्वी"
+  },
+  "soil": {
+    "title": "माती विश्लेषण",
+    "connectDevice": "डिव्हाइस कनेक्ट करा",
+    "scanning": "माती स्कॅन होत आहे...",
+    "results": "माती परिणाम",
+    "ph": "pH",
+    "nitrogen": "नायट्रोजन (N)",
+    "phosphorus": "फॉस्फरस (P)",
+    "potassium": "पोटॅशियम (K)",
+    "moisture": "आर्द्रता",
+    "score": "माती स्कोअर"
+  },
+  "suggestions": {
+    "title": "पिकाच्या सूचना",
+    "topCrops": "आपल्या शेतजमिनीसाठी टॉप पिके",
+    "confidence": "आत्मविश्वास",
+    "acceptSuggestion": "सूचना स्वीकारा",
+    "reasoning": "हे पीक का?"
+  },
+  "alerts": {
+    "title": "अलर्ट्स आणि सूचना",
+    "noAlerts": "सध्या अलर्ट्स नाहीत",
+    "weather": "हवामान अलर्ट",
+    "irrigation": "सिंचन आवश्यक",
+    "soil": "माती अलर्ट"
+  },
+  "reports": {
+    "title": "अहवाल",
+    "generateReport": "अहवाल तयार करा",
+    "selectField": "शेतजमीन निवडा",
+    "dateRange": "तारीख श्रेणी",
+    "export": "एक्सपोर्ट",
+    "share": "शेअर करा"
+  },
+  "settings": {
+    "title": "सेटिंग्ज",
+    "language": "भाषा",
+    "units": "एकके",
+    "sync": "डेटा सिंक करा",
+    "about": "बद्दल"
+  }
+}

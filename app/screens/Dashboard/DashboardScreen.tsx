@@ -14,6 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useI18n } from '../../hooks/useI18n';
 import { useAuthStore } from '../../store/authStore';
 import { useFieldsStore } from '../../store/fieldsStore';
+import { LanguageSelector } from '../../components';
 
 interface DashboardCardProps {
   title: string;
@@ -75,7 +76,7 @@ const QuickStatsCard: React.FC<{ fields: any[] }> = ({ fields }) => {
 };
 
 export default function DashboardScreen() {
-  const { t } = useI18n();
+  const { t, changeLanguage, currentLanguage } = useI18n();
   const { farmer } = useAuthStore();
   const { fields, loading, fetchFields, refreshFields } = useFieldsStore();
   const navigation = useNavigation();
@@ -109,6 +110,7 @@ export default function DashboardScreen() {
     navigation.navigate('Scan' as never);
   };
 
+
   const recentFields = fields.slice(0, 3);
 
   return (
@@ -119,15 +121,7 @@ export default function DashboardScreen() {
           <Text style={styles.welcomeText}>{t('dashboard.welcome')}</Text>
           <Text style={styles.farmerId}>{farmer?.id}</Text>
         </View>
-        <TouchableOpacity 
-          style={styles.languageButton}
-          onPress={() => {
-            // TODO: Implement language toggle
-            Alert.alert('Language', 'Language toggle coming soon!');
-          }}
-        >
-          <Ionicons name="language" size={20} color="#2E7D32" />
-        </TouchableOpacity>
+        <LanguageSelector />
       </View>
 
       <ScrollView 
@@ -242,11 +236,6 @@ const styles = StyleSheet.create({
     color: '#2E7D32',
     fontWeight: '600',
     marginTop: 2,
-  },
-  languageButton: {
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: '#f8f9fa',
   },
   content: {
     flex: 1,

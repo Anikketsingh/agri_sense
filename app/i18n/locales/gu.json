@@ -1,0 +1,192 @@
+{
+  "common": {
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "error": "ભૂલ",
+    "success": "સફળતા",
+    "cancel": "રદ કરો",
+    "save": "સેવ કરો",
+    "delete": "કાઢી નાખો",
+    "edit": "સંપાદન",
+    "add": "ઉમેરો",
+    "back": "પાછળ",
+    "next": "આગળ",
+    "done": "થઈ ગયું",
+    "seeAll": "બધું જુઓ"
+  },
+  "auth": {
+    "title": "એગ્રિસેન્સ",
+    "subtitle": "સ્માર્ટ ખેતીને સરળ બનાવો",
+    "phoneNumber": "ફોન નંબર",
+    "enterPhone": "તમારો ફોન નંબર દાખલ કરો",
+    "otpCode": "OTP કોડ",
+    "enterOtp": "તમારા ફોન પર મોકલેલ 6-અંકનો કોડ દાખલ કરો",
+    "verifyOtp": "OTP ચકાસો",
+    "resendOtp": "OTP ફરીથી મોકલો",
+    "farmerId": "કૃષક ID",
+    "welcome": "સ્વાગત"
+  },
+  "home": {
+    "title": "હોમ",
+    "myFields": "મારા ખેતરો",
+    "scanFarm": "ખેતર સ્કેન કરો",
+    "soilAnalysis": "માટી વિશ્લેષણ",
+    "cropSuggestions": "પાક સૂચનો",
+    "alerts": "અલર્ટ્સ",
+    "reports": "રિપોર્ટ્સ",
+    "settings": "સેટિંગ્સ"
+  },
+  "dashboard": {
+    "welcome": "એગ્રિસેન્સમાં આપનું સ્વાગત",
+    "myFarm": "મારું ખેતર",
+    "myFarmSubtitle": "ખેતરોનું સંચાલન, માટી વિશ્લેષણ અને પાકો",
+    "cropDisease": "પાકનો રોગ",
+    "cropDiseaseSubtitle": "AI સાથે રોગોની ઓળખ કરો",
+    "market": "બજાર",
+    "marketSubtitle": "કિંમતો અને વલણો જુઓ",
+    "recentFields": "તાજેતરના ખેતરો",
+    "noFieldsTitle": "હજુ ખેતરો નથી",
+    "noFieldsSubtitle": "વ્યક્તિગત પાક સૂચનો મેળવવા માટે તમારું પહેલું ખેતર સ્કેન કરો",
+    "addFirstField": "તમારું પહેલું ખેતર ઉમેરો"
+  },
+  "myFarm": {
+    "title": "મારું ખેતર",
+    "selectField": "ખેતર પસંદ કરો",
+    "noFields": "ખેતરો ઉપલબ્ધ નથી. શરૂ કરવા માટે તમારું પહેલું ખેતર ઉમેરો.",
+    "addFirstField": "તમારું પહેલું ખેતર ઉમેરો",
+    "soilAnalysis": "માટી વિશ્લેષણ",
+    "withSensor": "સેન્સર સાથે",
+    "withSensorSubtitle": "રિઅલ-ટાઇમ રીડિંગ્સ માટે BLE માટી સેન્સર કનેક્ટ કરો",
+    "withoutSensor": "સેન્સર વગર",
+    "withoutSensorSubtitle": "માટીના પરિમાણો મેન્યુઅલ ઇનપુટ",
+    "monitoringTools": "મોનિટરિંગ ટૂલ્સ",
+    "fertilizerMonitor": "ખાતર મોનિટર",
+    "fertilizerMonitorSubtitle": "ખાતરના ઉપયોગ અને સૂચનો ટ્રેક કરો",
+    "irrigationMonitor": "સિંચાઈ મોનિટર",
+    "irrigationMonitorSubtitle": "પાણીના ઉપયોગ અને સિંચાઈ શેડ્યૂલ મોનિટર કરો",
+    "yieldPrediction": "ઉપજની આગાહી",
+    "yieldPredictionSubtitle": "AI-ચાલિત ઉપજની આગાહી"
+  },
+  "cropDisease": {
+    "title": "પાકનો રોગ ઓળખ",
+    "instructionsTitle": "કેવી રીતે ઉપયોગ કરવો",
+    "instructionsText": "બીમાર છોડના પાંદડાની સ્પષ્ટ ફોટો લો અને અમારી AI તેને રોગો માટે વિશ્લેષણ કરશે.",
+    "selectImage": "ઇમેજ પસંદ કરો",
+    "noImageSelected": "કોઈ ઇમેજ પસંદ કરવામાં આવી નથી",
+    "takePhoto": "ફોટો લો",
+    "selectFromGallery": "ગેલેરીમાંથી",
+    "analyzeImage": "ઇમેજનું વિશ્લેષણ કરો",
+    "analyzing": "વિશ્લેષણ થઈ રહ્યું છે...",
+    "results": "વિશ્લેષણ પરિણામો",
+    "noResultsYet": "હજુ વિશ્લેષણ પરિણામો નથી. શરૂ કરવા માટે ઇમેજ અપલોડ કરો.",
+    "commonDiseases": "સામાન્ય રોગો"
+  },
+  "market": {
+    "title": "બજાર કિંમતો",
+    "searchPlaceholder": "પાકો શોધો...",
+    "currentPrices": "વર્તમાન કિંમતો",
+    "marketNews": "બજાર સમાચાર",
+    "newsComingSoon": "બજાર સમાચાર અને વલણો ટૂંક સમયમાં આવી રહ્યા છે!"
+  },
+  "tutorial": {
+    "welcome": "એગ્રિસેન્સમાં આપનું સ્વાગત",
+    "welcomeDescription": "તમારો સ્માર્ટ ખેતી સાથી જે સારા પાકની ઉપજ માટે ડેટા-ચાલિત નિર્ણયો લેવામાં મદદ કરે છે.",
+    "mapFields": "તમારા ખેતરોને મેપ કરો",
+    "mapFieldsDescription": "ચોક્કસ ખેતર મેપ બનાવવા માટે તમારા ખેતરની સીમાઓની આસપાસ ચાલો.",
+    "analyzeSoil": "માટીના આરોગ્યનું વિશ્લેષણ કરો",
+    "analyzeSoilDescription": "pH, પોષક તત્વો અને ભેજના સ્તરોના રિઅલ-ટાઇમ રીડિંગ્સ માટે માટી સેન્સર કનેક્ટ કરો.",
+    "getSuggestions": "સ્માર્ટ સૂચનો મેળવો",
+    "getSuggestionsDescription": "તમારા ખેતર ડેટાના આધારે AI-ચાલિત પાક સૂચનો અને ખેતી સલાહ મેળવો.",
+    "features": {
+      "gpsMapping": "GPS ખેતર મેપિંગ",
+      "soilAnalysis": "માટી વિશ્લેષણ",
+      "cropRecommendations": "પાક સૂચનો",
+      "marketPrices": "બજાર કિંમતો"
+    },
+    "gpsTutorial": {
+      "startTracking": "GPS ટ્રેકિંગ શરૂ કરો",
+      "startTrackingDescription": "તમારા ખેતરની સીમા રેકોર્ડ કરવાનું શરૂ કરવા માટે \"સ્કેન શરૂ કરો\" બટન ટેપ કરો.",
+      "walkField": "તમારા ખેતરની આસપાસ ચાલો",
+      "walkFieldDescription": "તમારા ખેતરના પરિઘની આસપાસ ધીમે ધીમે ચાલો. તમે ચાલતા જતા એપ્લિકેશન આપમેળે પોઇન્ટ્સ રેકોર્ડ કરશે.",
+      "watchArea": "લાઇવ વિસ્તાર ગણતરી જુઓ",
+      "watchAreaDescription": "તમે ચાલતા જતા ખેતરનો વિસ્તાર રિઅલ-ટાઇમમાં ગણાતો જુઓ. બહુકોણ આપમેળે બનશે.",
+      "stopSave": "બંધ કરો અને સેવ કરો",
+      "stopSaveDescription": "જ્યારે તમે સીમા પૂર્ણ કરો ત્યારે \"સ્કેન બંધ કરો\" ટેપ કરો, પછી નામ સાથે તમારું ખેતર સેવ કરો."
+    },
+    "next": "આગળ",
+    "skip": "છોડો",
+    "getStarted": "શરૂ કરો",
+    "complete": "પૂર્ણ",
+    "skipTutorial": "ટ્યુટોરિયલ છોડો",
+    "skipConfirm": "શું તમે ખરેખર GPS ટ્યુટોરિયલ છોડવા માંગો છો? તમે તેને પછી સેટિંગ્સમાંથી એક્સેસ કરી શકો છો."
+  },
+  "fields": {
+    "title": "મારા ખેતરો",
+    "addField": "ખેતર ઉમેરો",
+    "noFields": "હજુ ખેતરો નથી. તમારું પહેલું ખેતર ઉમેરો!",
+    "fieldName": "ખેતરનું નામ",
+    "area": "વિસ્તાર",
+    "crop": "પાક",
+    "lastScan": "છેલ્લો સ્કેન"
+  },
+  "scan": {
+    "title": "ખેતર સ્કેન કરો",
+    "startScan": "સ્કેન શરૂ કરો",
+    "stopScan": "સ્કેન બંધ કરો",
+    "scanning": "સ્કેન થઈ રહ્યું છે...",
+    "area": "વિસ્તાર",
+    "saveField": "ખેતર સેવ કરો",
+    "tracking": "ટ્રેકિંગ",
+    "distance": "અંતર",
+    "points": "પોઇન્ટ્સ",
+    "clearAll": "બધા પોઇન્ટ્સ સાફ કરો",
+    "saving": "સેવ થઈ રહ્યું છે...",
+    "invalidField": "અમાન્ય ખેતર",
+    "notEnoughPoints": "ખેતર બનાવવા માટે ઓછામાં ઓછા 3 પોઇન્ટ્સ સ્કેન કરો",
+    "fieldSaved": "ખેતર સફળતાપૂર્વક સેવ થયું!",
+    "fieldSavedOffline": "ખેતર સ્થાનિક રીતે સેવ થયું પરંતુ સર્વર પર સિંક કરવામાં નિષ્ફળ. જ્યારે તમારી પાસે ઇન્ટરનેટ કનેક્શન હશે ત્યારે તે સિંક થશે.",
+    "saveError": "ખેતર સેવ કરવામાં નિષ્ફળ",
+    "gpsError": "GPS ભૂલ",
+    "startError": "GPS ટ્રેકિંગ શરૂ કરવામાં નિષ્ફળ"
+  },
+  "soil": {
+    "title": "માટી વિશ્લેષણ",
+    "connectDevice": "ડિવાઇસ કનેક્ટ કરો",
+    "scanning": "માટી સ્કેન થઈ રહી છે...",
+    "results": "માટી પરિણામો",
+    "ph": "pH",
+    "nitrogen": "નાઇટ્રોજન (N)",
+    "phosphorus": "ફોસ્ફરસ (P)",
+    "potassium": "પોટેશિયમ (K)",
+    "moisture": "ભેજ",
+    "score": "માટી સ્કોર"
+  },
+  "suggestions": {
+    "title": "પાક સૂચનો",
+    "topCrops": "તમારા ખેતર માટે ટોપ પાકો",
+    "confidence": "વિશ્વાસ",
+    "acceptSuggestion": "સૂચન સ્વીકારો",
+    "reasoning": "આ પાક કેમ?"
+  },
+  "alerts": {
+    "title": "અલર્ટ્સ અને સૂચનો",
+    "noAlerts": "હાલમાં કોઈ અલર્ટ્સ નથી",
+    "weather": "હવામાન અલર્ટ",
+    "irrigation": "સિંચાઈ જરૂરી",
+    "soil": "માટી અલર્ટ"
+  },
+  "reports": {
+    "title": "રિપોર્ટ્સ",
+    "generateReport": "રિપોર્ટ જનરેટ કરો",
+    "selectField": "ખેતર પસંદ કરો",
+    "dateRange": "તારીખ શ્રેણી",
+    "export": "એક્સપોર્ટ",
+    "share": "શેર કરો"
+  },
+  "settings": {
+    "title": "સેટિંગ્સ",
+    "language": "ભાષા",
+    "units": "એકમો",
+    "sync": "ડેટા સિંક કરો",
+    "about": "વિશે"
+  }
+}

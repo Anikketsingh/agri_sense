@@ -1,0 +1,192 @@
+{
+  "common": {
+    "loading": "লোড হচ্ছে...",
+    "error": "ত্রুটি",
+    "success": "সফলতা",
+    "cancel": "বাতিল",
+    "save": "সংরক্ষণ",
+    "delete": "মুছে ফেলুন",
+    "edit": "সম্পাদনা",
+    "add": "যোগ করুন",
+    "back": "ফিরে যান",
+    "next": "পরবর্তী",
+    "done": "সম্পন্ন",
+    "seeAll": "সব দেখুন"
+  },
+  "auth": {
+    "title": "এগ্রিসেন্স",
+    "subtitle": "স্মার্ট কৃষি সহজ করুন",
+    "phoneNumber": "ফোন নম্বর",
+    "enterPhone": "আপনার ফোন নম্বর লিখুন",
+    "otpCode": "OTP কোড",
+    "enterOtp": "আপনার ফোনে পাঠানো ৬-অঙ্কের কোড লিখুন",
+    "verifyOtp": "OTP যাচাই করুন",
+    "resendOtp": "OTP পুনরায় পাঠান",
+    "farmerId": "কৃষক আইডি",
+    "welcome": "স্বাগতম"
+  },
+  "home": {
+    "title": "হোম",
+    "myFields": "আমার জমি",
+    "scanFarm": "জমি স্ক্যান করুন",
+    "soilAnalysis": "মাটি বিশ্লেষণ",
+    "cropSuggestions": "ফসলের পরামর্শ",
+    "alerts": "সতর্কতা",
+    "reports": "রিপোর্ট",
+    "settings": "সেটিংস"
+  },
+  "dashboard": {
+    "welcome": "এগ্রিসেন্সে স্বাগতম",
+    "myFarm": "আমার খামার",
+    "myFarmSubtitle": "জমি পরিচালনা, মাটি বিশ্লেষণ ও ফসল",
+    "cropDisease": "ফসলের রোগ",
+    "cropDiseaseSubtitle": "AI দিয়ে রোগ চিহ্নিত করুন",
+    "market": "বাজার",
+    "marketSubtitle": "দাম ও প্রবণতা দেখুন",
+    "recentFields": "সাম্প্রতিক জমি",
+    "noFieldsTitle": "এখনো কোনো জমি নেই",
+    "noFieldsSubtitle": "ব্যক্তিগত ফসলের পরামর্শ পেতে আপনার প্রথম জমি স্ক্যান করুন",
+    "addFirstField": "আপনার প্রথম জমি যোগ করুন"
+  },
+  "myFarm": {
+    "title": "আমার খামার",
+    "selectField": "জমি নির্বাচন করুন",
+    "noFields": "কোনো জমি নেই। শুরু করতে আপনার প্রথম জমি যোগ করুন।",
+    "addFirstField": "আপনার প্রথম জমি যোগ করুন",
+    "soilAnalysis": "মাটি বিশ্লেষণ",
+    "withSensor": "সেন্সর সহ",
+    "withSensorSubtitle": "রিয়েল-টাইম রিডিংয়ের জন্য BLE মাটি সেন্সর সংযোগ করুন",
+    "withoutSensor": "সেন্সর ছাড়া",
+    "withoutSensorSubtitle": "মাটির প্যারামিটার ম্যানুয়াল ইনপুট",
+    "monitoringTools": "নিরীক্ষণ সরঞ্জাম",
+    "fertilizerMonitor": "সার মনিটর",
+    "fertilizerMonitorSubtitle": "সার ব্যবহার এবং পরামর্শ ট্র্যাক করুন",
+    "irrigationMonitor": "সেচ মনিটর",
+    "irrigationMonitorSubtitle": "জল ব্যবহার এবং সেচ সময়সূচী মনিটর করুন",
+    "yieldPrediction": "ফসলের পূর্বাভাস",
+    "yieldPredictionSubtitle": "AI-চালিত ফসলের পূর্বাভাস"
+  },
+  "cropDisease": {
+    "title": "ফসলের রোগ সনাক্তকরণ",
+    "instructionsTitle": "ক如何使用",
+    "instructionsText": "আক্রান্ত গাছের পাতার একটি পরিষ্কার ছবি তুলুন এবং আমাদের AI এটি রোগের জন্য বিশ্লেষণ করবে।",
+    "selectImage": "ছবি নির্বাচন করুন",
+    "noImageSelected": "কোনো ছবি নির্বাচন করা হয়নি",
+    "takePhoto": "ফটো তুলুন",
+    "selectFromGallery": "গ্যালারি থেকে",
+    "analyzeImage": "ছবি বিশ্লেষণ করুন",
+    "analyzing": "বিশ্লেষণ হচ্ছে...",
+    "results": "বিশ্লেষণ ফলাফল",
+    "noResultsYet": "এখনো কোনো বিশ্লেষণ ফলাফল নেই। শুরু করতে একটি ছবি আপলোড করুন।",
+    "commonDiseases": "সাধারণ রোগ"
+  },
+  "market": {
+    "title": "বাজার দাম",
+    "searchPlaceholder": "ফসল খুঁজুন...",
+    "currentPrices": "বর্তমান দাম",
+    "marketNews": "বাজার সংবাদ",
+    "newsComingSoon": "বাজার সংবাদ এবং প্রবণতা শীঘ্রই আসছে!"
+  },
+  "tutorial": {
+    "welcome": "এগ্রিসেন্সে স্বাগতম",
+    "welcomeDescription": "আপনার স্মার্ট কৃষি সহচর যা ভালো ফসলের ফলনের জন্য ডেটা-চালিত সিদ্ধান্ত নিতে সাহায্য করে।",
+    "mapFields": "আপনার জমি ম্যাপ করুন",
+    "mapFieldsDescription": "সঠিক জমি ম্যাপ তৈরি করতে আপনার জমির সীমানার চারপাশে হেঁটে যান।",
+    "analyzeSoil": "মাটির স্বাস্থ্য বিশ্লেষণ করুন",
+    "analyzeSoilDescription": "pH, পুষ্টি এবং আর্দ্রতার মাত্রার রিয়েল-টাইম রিডিং পেতে মাটি সেন্সর সংযোগ করুন।",
+    "getSuggestions": "স্মার্ট পরামর্শ পান",
+    "getSuggestionsDescription": "আপনার জমির ডেটার ভিত্তিতে AI-চালিত ফসলের পরামর্শ এবং কৃষি পরামর্শ পান।",
+    "features": {
+      "gpsMapping": "GPS জমি ম্যাপিং",
+      "soilAnalysis": "মাটি বিশ্লেষণ",
+      "cropRecommendations": "ফসলের পরামর্শ",
+      "marketPrices": "বাজার দাম"
+    },
+    "gpsTutorial": {
+      "startTracking": "GPS ট্র্যাকিং শুরু করুন",
+      "startTrackingDescription": "আপনার জমির সীমানা রেকর্ড করা শুরু করতে \"স্ক্যান শুরু করুন\" বোতাম ট্যাপ করুন।",
+      "walkField": "আপনার জমির চারপাশে হেঁটে যান",
+      "walkFieldDescription": "আপনার জমির পরিধির চারপাশে ধীরে ধীরে হেঁটে যান। আপনি যেতে যেতে অ্যাপটি স্বয়ংক্রিয়ভাবে পয়েন্ট রেকর্ড করবে।",
+      "watchArea": "লাইভ এলাকা গণনা দেখুন",
+      "watchAreaDescription": "আপনি যেতে যেতে জমির এলাকা রিয়েল-টাইমে গণনা হতে দেখুন। বহুভুজ স্বয়ংক্রিয়ভাবে গঠিত হবে।",
+      "stopSave": "থামান এবং সংরক্ষণ করুন",
+      "stopSaveDescription": "আপনি সীমানা সম্পূর্ণ করার পর \"স্ক্যান থামান\" ট্যাপ করুন, তারপর একটি নাম দিয়ে আপনার জমি সংরক্ষণ করুন।"
+    },
+    "next": "পরবর্তী",
+    "skip": "এড়িয়ে যান",
+    "getStarted": "শুরু করুন",
+    "complete": "সম্পন্ন",
+    "skipTutorial": "টিউটোরিয়াল এড়িয়ে যান",
+    "skipConfirm": "আপনি কি নিশ্চিত যে আপনি GPS টিউটোরিয়াল এড়িয়ে যেতে চান? আপনি পরে সেটিংস থেকে এটি অ্যাক্সেস করতে পারেন।"
+  },
+  "fields": {
+    "title": "আমার জমি",
+    "addField": "জমি যোগ করুন",
+    "noFields": "এখনো কোনো জমি নেই। আপনার প্রথম জমি যোগ করুন!",
+    "fieldName": "জমির নাম",
+    "area": "এলাকা",
+    "crop": "ফসল",
+    "lastScan": "শেষ স্ক্যান"
+  },
+  "scan": {
+    "title": "জমি স্ক্যান করুন",
+    "startScan": "স্ক্যান শুরু করুন",
+    "stopScan": "স্ক্যান থামান",
+    "scanning": "স্ক্যান হচ্ছে...",
+    "area": "এলাকা",
+    "saveField": "জমি সংরক্ষণ করুন",
+    "tracking": "ট্র্যাকিং",
+    "distance": "দূরত্ব",
+    "points": "পয়েন্ট",
+    "clearAll": "সব পয়েন্ট মুছুন",
+    "saving": "সংরক্ষণ হচ্ছে...",
+    "invalidField": "অবৈধ জমি",
+    "notEnoughPoints": "জমি তৈরি করতে কমপক্ষে ৩টি পয়েন্ট স্ক্যান করুন",
+    "fieldSaved": "জমি সফলভাবে সংরক্ষিত!",
+    "fieldSavedOffline": "জমি স্থানীয়ভাবে সংরক্ষিত কিন্তু সার্ভারে সিঙ্ক করতে ব্যর্থ। ইন্টারনেট সংযোগ থাকলে এটি সিঙ্ক হবে।",
+    "saveError": "জমি সংরক্ষণ করতে ব্যর্থ",
+    "gpsError": "GPS ত্রুটি",
+    "startError": "GPS ট্র্যাকিং শুরু করতে ব্যর্থ"
+  },
+  "soil": {
+    "title": "মাটি বিশ্লেষণ",
+    "connectDevice": "ডিভাইস সংযোগ করুন",
+    "scanning": "মাটি স্ক্যান হচ্ছে...",
+    "results": "মাটি ফলাফল",
+    "ph": "pH",
+    "nitrogen": "নাইট্রোজেন (N)",
+    "phosphorus": "ফসফরাস (P)",
+    "potassium": "পটাসিয়াম (K)",
+    "moisture": "আর্দ্রতা",
+    "score": "মাটি স্কোর"
+  },
+  "suggestions": {
+    "title": "ফসলের পরামর্শ",
+    "topCrops": "আপনার জমির জন্য শীর্ষ ফসল",
+    "confidence": "আত্মবিশ্বাস",
+    "acceptSuggestion": "পরামর্শ গ্রহণ করুন",
+    "reasoning": "এই ফসল কেন?"
+  },
+  "alerts": {
+    "title": "সতর্কতা ও পরামর্শ",
+    "noAlerts": "এখনো কোনো সতর্কতা নেই",
+    "weather": "আবহাওয়া সতর্কতা",
+    "irrigation": "সেচ প্রয়োজন",
+    "soil": "মাটি সতর্কতা"
+  },
+  "reports": {
+    "title": "রিপোর্ট",
+    "generateReport": "রিপোর্ট তৈরি করুন",
+    "selectField": "জমি নির্বাচন করুন",
+    "dateRange": "তারিখের পরিসর",
+    "export": "রপ্তানি",
+    "share": "শেয়ার করুন"
+  },
+  "settings": {
+    "title": "সেটিংস",
+    "language": "ভাষা",
+    "units": "একক",
+    "sync": "ডেটা সিঙ্ক করুন",
+    "about": "সম্পর্কে"
+  }
+}

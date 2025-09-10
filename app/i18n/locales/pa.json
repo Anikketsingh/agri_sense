@@ -1,0 +1,192 @@
+{
+  "common": {
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "error": "ਗਲਤੀ",
+    "success": "ਸਫਲਤਾ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "save": "ਸੇਵ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ",
+    "edit": "ਸੰਪਾਦਨ",
+    "add": "ਜੋੜੋ",
+    "back": "ਵਾਪਸ",
+    "next": "ਅੱਗੇ",
+    "done": "ਹੋ ਗਿਆ",
+    "seeAll": "ਸਭ ਦੇਖੋ"
+  },
+  "auth": {
+    "title": "ਏਗ੍ਰਿਸੇਨਸ",
+    "subtitle": "ਸਮਾਰਟ ਖੇਤੀ ਨੂੰ ਆਸਾਨ ਬਣਾਓ",
+    "phoneNumber": "ਫੋਨ ਨੰਬਰ",
+    "enterPhone": "ਆਪਣਾ ਫੋਨ ਨੰਬਰ ਦਰਜ ਕਰੋ",
+    "otpCode": "OTP ਕੋਡ",
+    "enterOtp": "ਆਪਣੇ ਫੋਨ 'ਤੇ ਭੇਜੇ ਗਏ 6-ਅੰਕਾਂ ਦਾ ਕੋਡ ਦਰਜ ਕਰੋ",
+    "verifyOtp": "OTP ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ",
+    "resendOtp": "OTP ਮੁੜ ਭੇਜੋ",
+    "farmerId": "ਕਿਸਾਨ ID",
+    "welcome": "ਸਵਾਗਤ"
+  },
+  "home": {
+    "title": "ਹੋਮ",
+    "myFields": "ਮੇਰੇ ਖੇਤ",
+    "scanFarm": "ਖੇਤ ਸਕੈਨ ਕਰੋ",
+    "soilAnalysis": "ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ",
+    "cropSuggestions": "ਫਸਲ ਸੁਝਾਅ",
+    "alerts": "ਅਲਰਟ",
+    "reports": "ਰਿਪੋਰਟਾਂ",
+    "settings": "ਸੈਟਿੰਗਾਂ"
+  },
+  "dashboard": {
+    "welcome": "ਏਗ੍ਰਿਸੇਨਸ ਵਿੱਚ ਸਵਾਗਤ",
+    "myFarm": "ਮੇਰਾ ਖੇਤ",
+    "myFarmSubtitle": "ਖੇਤਾਂ ਦਾ ਪ੍ਰਬੰਧਨ, ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਫਸਲਾਂ",
+    "cropDisease": "ਫਸਲ ਰੋਗ",
+    "cropDiseaseSubtitle": "AI ਨਾਲ ਰੋਗਾਂ ਦੀ ਪਛਾਣ ਕਰੋ",
+    "market": "ਬਾਜ਼ਾਰ",
+    "marketSubtitle": "ਕੀਮਤਾਂ ਅਤੇ ਰੁਝਾਨ ਦੇਖੋ",
+    "recentFields": "ਹਾਲੀਆ ਖੇਤ",
+    "noFieldsTitle": "ਅਜੇ ਤੱਕ ਕੋਈ ਖੇਤ ਨਹੀਂ",
+    "noFieldsSubtitle": "ਨਿੱਜੀ ਫਸਲ ਸੁਝਾਅ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣਾ ਪਹਿਲਾ ਖੇਤ ਸਕੈਨ ਕਰੋ",
+    "addFirstField": "ਆਪਣਾ ਪਹਿਲਾ ਖੇਤ ਜੋੜੋ"
+  },
+  "myFarm": {
+    "title": "ਮੇਰਾ ਖੇਤ",
+    "selectField": "ਖੇਤ ਚੁਣੋ",
+    "noFields": "ਖੇਤ ਉਪਲਬਧ ਨਹੀਂ। ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਪਣਾ ਪਹਿਲਾ ਖੇਤ ਜੋੜੋ।",
+    "addFirstField": "ਆਪਣਾ ਪਹਿਲਾ ਖੇਤ ਜੋੜੋ",
+    "soilAnalysis": "ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ",
+    "withSensor": "ਸੈਂਸਰ ਨਾਲ",
+    "withSensorSubtitle": "ਰੀਅਲ-ਟਾਈਮ ਰੀਡਿੰਗਾਂ ਲਈ BLE ਮਿੱਟੀ ਸੈਂਸਰ ਕਨੈਕਟ ਕਰੋ",
+    "withoutSensor": "ਸੈਂਸਰ ਬਿਨਾਂ",
+    "withoutSensorSubtitle": "ਮਿੱਟੀ ਦੇ ਪੈਰਾਮੀਟਰ ਮੈਨੂਅਲ ਇਨਪੁੱਟ",
+    "monitoringTools": "ਮਾਨੀਟਰਿੰਗ ਟੂਲ",
+    "fertilizerMonitor": "ਖਾਦ ਮਾਨੀਟਰ",
+    "fertilizerMonitorSubtitle": "ਖਾਦ ਦੀ ਵਰਤੋਂ ਅਤੇ ਸੁਝਾਅ ਟਰੈਕ ਕਰੋ",
+    "irrigationMonitor": "ਸਿੰਚਾਈ ਮਾਨੀਟਰ",
+    "irrigationMonitorSubtitle": "ਪਾਣੀ ਦੀ ਵਰਤੋਂ ਅਤੇ ਸਿੰਚਾਈ ਸਮਾਂਸੂਚੀ ਮਾਨੀਟਰ ਕਰੋ",
+    "yieldPrediction": "ਪੈਦਾਵਾਰ ਭਵਿੱਖਬਾਣੀ",
+    "yieldPredictionSubtitle": "AI-ਚਾਲਿਤ ਪੈਦਾਵਾਰ ਭਵਿੱਖਬਾਣੀ"
+  },
+  "cropDisease": {
+    "title": "ਫਸਲ ਰੋਗ ਪਛਾਣ",
+    "instructionsTitle": "ਕਿਵੇਂ ਵਰਤਣਾ ਹੈ",
+    "instructionsText": "ਬਿਮਾਰ ਪੌਦੇ ਦੇ ਪੱਤਿਆਂ ਦੀ ਸਪਸ਼ਟ ਫੋਟੋ ਲਓ ਅਤੇ ਸਾਡੀ AI ਇਸਨੂੰ ਰੋਗਾਂ ਲਈ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੇਗੀ।",
+    "selectImage": "ਇਮੇਜ ਚੁਣੋ",
+    "noImageSelected": "ਕੋਈ ਇਮੇਜ ਚੁਣੀ ਨਹੀਂ ਗਈ",
+    "takePhoto": "ਫੋਟੋ ਲਓ",
+    "selectFromGallery": "ਗੈਲਰੀ ਤੋਂ",
+    "analyzeImage": "ਇਮੇਜ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੋ",
+    "analyzing": "ਵਿਸ਼ਲੇਸ਼ਣ ਹੋ ਰਿਹਾ ਹੈ...",
+    "results": "ਵਿਸ਼ਲੇਸ਼ਣ ਨਤੀਜੇ",
+    "noResultsYet": "ਅਜੇ ਤੱਕ ਕੋਈ ਵਿਸ਼ਲੇਸ਼ਣ ਨਤੀਜੇ ਨਹੀਂ। ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇੱਕ ਇਮੇਜ ਅਪਲੋਡ ਕਰੋ।",
+    "commonDiseases": "ਆਮ ਰੋਗ"
+  },
+  "market": {
+    "title": "ਬਾਜ਼ਾਰ ਕੀਮਤਾਂ",
+    "searchPlaceholder": "ਫਸਲਾਂ ਖੋਜੋ...",
+    "currentPrices": "ਮੌਜੂਦਾ ਕੀਮਤਾਂ",
+    "marketNews": "ਬਾਜ਼ਾਰ ਖਬਰਾਂ",
+    "newsComingSoon": "ਬਾਜ਼ਾਰ ਖਬਰਾਂ ਅਤੇ ਰੁਝਾਨ ਜਲਦੀ ਆ ਰਹੇ ਹਨ!"
+  },
+  "tutorial": {
+    "welcome": "ਏਗ੍ਰਿਸੇਨਸ ਵਿੱਚ ਸਵਾਗਤ",
+    "welcomeDescription": "ਤੁਹਾਡਾ ਸਮਾਰਟ ਖੇਤੀ ਸਾਥੀ ਜੋ ਵਧੀਆ ਫਸਲ ਪੈਦਾਵਾਰ ਲਈ ਡੇਟਾ-ਚਾਲਿਤ ਫੈਸਲੇ ਲੈਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ।",
+    "mapFields": "ਆਪਣੇ ਖੇਤਾਂ ਨੂੰ ਮੈਪ ਕਰੋ",
+    "mapFieldsDescription": "ਸਹੀ ਖੇਤ ਮੈਪ ਬਣਾਉਣ ਲਈ ਆਪਣੇ ਖੇਤ ਦੀਆਂ ਸੀਮਾਵਾਂ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਚਲੋ।",
+    "analyzeSoil": "ਮਿੱਟੀ ਦੀ ਸਿਹਤ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੋ",
+    "analyzeSoilDescription": "pH, ਪੋਸ਼ਕ ਤੱਤਾਂ ਅਤੇ ਨਮੀ ਦੇ ਪੱਧਰਾਂ ਦੀਆਂ ਰੀਅਲ-ਟਾਈਮ ਰੀਡਿੰਗਾਂ ਲਈ ਮਿੱਟੀ ਸੈਂਸਰ ਕਨੈਕਟ ਕਰੋ।",
+    "getSuggestions": "ਸਮਾਰਟ ਸੁਝਾਅ ਪ੍ਰਾਪਤ ਕਰੋ",
+    "getSuggestionsDescription": "ਆਪਣੇ ਖੇਤ ਡੇਟਾ ਦੇ ਆਧਾਰ 'ਤੇ AI-ਚਾਲਿਤ ਫਸਲ ਸੁਝਾਅ ਅਤੇ ਖੇਤੀ ਸਲਾਹ ਪ੍ਰਾਪਤ ਕਰੋ।",
+    "features": {
+      "gpsMapping": "GPS ਖੇਤ ਮੈਪਿੰਗ",
+      "soilAnalysis": "ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "cropRecommendations": "ਫਸਲ ਸੁਝਾਅ",
+      "marketPrices": "ਬਾਜ਼ਾਰ ਕੀਮਤਾਂ"
+    },
+    "gpsTutorial": {
+      "startTracking": "GPS ਟਰੈਕਿੰਗ ਸ਼ੁਰੂ ਕਰੋ",
+      "startTrackingDescription": "ਆਪਣੇ ਖੇਤ ਦੀ ਸੀਮਾ ਰਿਕਾਰਡ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ \"ਸਕੈਨ ਸ਼ੁਰੂ ਕਰੋ\" ਬਟਨ ਟੈਪ ਕਰੋ।",
+      "walkField": "ਆਪਣੇ ਖੇਤ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਚਲੋ",
+      "walkFieldDescription": "ਆਪਣੇ ਖੇਤ ਦੇ ਘੇਰੇ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਹੌਲੀ-ਹੌਲੀ ਚਲੋ। ਤੁਸੀਂ ਚਲਦੇ ਜਾਂਦੇ ਐਪ ਆਪਣੇ-ਆਪ ਪੁਆਇੰਟ ਰਿਕਾਰਡ ਕਰੇਗੀ।",
+      "watchArea": "ਲਾਈਵ ਏਰੀਆ ਗਣਨਾ ਦੇਖੋ",
+      "watchAreaDescription": "ਤੁਸੀਂ ਚਲਦੇ ਜਾਂਦੇ ਖੇਤ ਦਾ ਏਰੀਆ ਰੀਅਲ-ਟਾਈਮ ਵਿੱਚ ਗਿਣਿਆ ਜਾਂਦਾ ਦੇਖੋ। ਬਹੁਭੁਜ ਆਪਣੇ-ਆਪ ਬਣੇਗਾ।",
+      "stopSave": "ਰੋਕੋ ਅਤੇ ਸੇਵ ਕਰੋ",
+      "stopSaveDescription": "ਜਦੋਂ ਤੁਸੀਂ ਸੀਮਾ ਪੂਰੀ ਕਰੋ ਤਾਂ \"ਸਕੈਨ ਰੋਕੋ\" ਟੈਪ ਕਰੋ, ਫਿਰ ਇੱਕ ਨਾਮ ਨਾਲ ਆਪਣਾ ਖੇਤ ਸੇਵ ਕਰੋ।"
+    },
+    "next": "ਅੱਗੇ",
+    "skip": "ਛੱਡੋ",
+    "getStarted": "ਸ਼ੁਰੂ ਕਰੋ",
+    "complete": "ਪੂਰਾ",
+    "skipTutorial": "ਟਿਊਟੋਰਿਅਲ ਛੱਡੋ",
+    "skipConfirm": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ GPS ਟਿਊਟੋਰਿਅਲ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਤੁਸੀਂ ਇਸਨੂੰ ਬਾਅਦ ਵਿੱਚ ਸੈਟਿੰਗਾਂ ਤੋਂ ਐਕਸੈਸ ਕਰ ਸਕਦੇ ਹੋ।"
+  },
+  "fields": {
+    "title": "ਮੇਰੇ ਖੇਤ",
+    "addField": "ਖੇਤ ਜੋੜੋ",
+    "noFields": "ਅਜੇ ਤੱਕ ਕੋਈ ਖੇਤ ਨਹੀਂ। ਆਪਣਾ ਪਹਿਲਾ ਖੇਤ ਜੋੜੋ!",
+    "fieldName": "ਖੇਤ ਦਾ ਨਾਮ",
+    "area": "ਏਰੀਆ",
+    "crop": "ਫਸਲ",
+    "lastScan": "ਆਖਰੀ ਸਕੈਨ"
+  },
+  "scan": {
+    "title": "ਖੇਤ ਸਕੈਨ ਕਰੋ",
+    "startScan": "ਸਕੈਨ ਸ਼ੁਰੂ ਕਰੋ",
+    "stopScan": "ਸਕੈਨ ਰੋਕੋ",
+    "scanning": "ਸਕੈਨ ਹੋ ਰਿਹਾ ਹੈ...",
+    "area": "ਏਰੀਆ",
+    "saveField": "ਖੇਤ ਸੇਵ ਕਰੋ",
+    "tracking": "ਟਰੈਕਿੰਗ",
+    "distance": "ਦੂਰੀ",
+    "points": "ਪੁਆਇੰਟ",
+    "clearAll": "ਸਾਰੇ ਪੁਆਇੰਟ ਸਾਫ਼ ਕਰੋ",
+    "saving": "ਸੇਵ ਹੋ ਰਿਹਾ ਹੈ...",
+    "invalidField": "ਗਲਤ ਖੇਤ",
+    "notEnoughPoints": "ਖੇਤ ਬਣਾਉਣ ਲਈ ਘੱਟੋ-ਘੱਟ 3 ਪੁਆਇੰਟ ਸਕੈਨ ਕਰੋ",
+    "fieldSaved": "ਖੇਤ ਸਫਲਤਾਪੂਰਵਕ ਸੇਵ ਹੋਇਆ!",
+    "fieldSavedOffline": "ਖੇਤ ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਸੇਵ ਹੋਇਆ ਪਰ ਸਰਵਰ 'ਤੇ ਸਿੰਕ ਕਰਨ ਵਿੱਚ ਅਸਫਲ। ਜਦੋਂ ਤੁਹਾਡੇ ਕੋਲ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਹੋਵੇਗਾ ਤਾਂ ਇਹ ਸਿੰਕ ਹੋਵੇਗਾ।",
+    "saveError": "ਖੇਤ ਸੇਵ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+    "gpsError": "GPS ਗਲਤੀ",
+    "startError": "GPS ਟਰੈਕਿੰਗ ਸ਼ੁਰੂ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
+  },
+  "soil": {
+    "title": "ਮਿੱਟੀ ਵਿਸ਼ਲੇਸ਼ਣ",
+    "connectDevice": "ਡਿਵਾਈਸ ਕਨੈਕਟ ਕਰੋ",
+    "scanning": "ਮਿੱਟੀ ਸਕੈਨ ਹੋ ਰਿਹੀ ਹੈ...",
+    "results": "ਮਿੱਟੀ ਨਤੀਜੇ",
+    "ph": "pH",
+    "nitrogen": "ਨਾਈਟ੍ਰੋਜਨ (N)",
+    "phosphorus": "ਫਾਸਫੋਰਸ (P)",
+    "potassium": "ਪੋਟਾਸ਼ੀਅਮ (K)",
+    "moisture": "ਨਮੀ",
+    "score": "ਮਿੱਟੀ ਸਕੋਰ"
+  },
+  "suggestions": {
+    "title": "ਫਸਲ ਸੁਝਾਅ",
+    "topCrops": "ਤੁਹਾਡੇ ਖੇਤ ਲਈ ਟਾਪ ਫਸਲਾਂ",
+    "confidence": "ਆਤਮਵਿਸ਼ਵਾਸ",
+    "acceptSuggestion": "ਸੁਝਾਅ ਸਵੀਕਾਰ ਕਰੋ",
+    "reasoning": "ਇਹ ਫਸਲ ਕਿਉਂ?"
+  },
+  "alerts": {
+    "title": "ਅਲਰਟ ਅਤੇ ਸੁਝਾਅ",
+    "noAlerts": "ਇਸ ਸਮੇਂ ਕੋਈ ਅਲਰਟ ਨਹੀਂ",
+    "weather": "ਮੌਸਮ ਅਲਰਟ",
+    "irrigation": "ਸਿੰਚਾਈ ਲੋੜੀਂਦੀ",
+    "soil": "ਮਿੱਟੀ ਅਲਰਟ"
+  },
+  "reports": {
+    "title": "ਰਿਪੋਰਟਾਂ",
+    "generateReport": "ਰਿਪੋਰਟ ਬਣਾਓ",
+    "selectField": "ਖੇਤ ਚੁਣੋ",
+    "dateRange": "ਤਾਰੀਖ ਰੇਂਜ",
+    "export": "ਐਕਸਪੋਰਟ",
+    "share": "ਸਾਂਝਾ ਕਰੋ"
+  },
+  "settings": {
+    "title": "ਸੈਟਿੰਗਾਂ",
+    "language": "ਭਾਸ਼ਾ",
+    "units": "ਯੂਨਿਟ",
+    "sync": "ਡੇਟਾ ਸਿੰਕ ਕਰੋ",
+    "about": "ਬਾਰੇ"
+  }
+}

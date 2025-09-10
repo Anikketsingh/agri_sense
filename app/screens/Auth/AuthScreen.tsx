@@ -12,10 +12,12 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useI18n } from '../../hooks/useI18n';
 import { useAuthStore } from '../../store/authStore';
+import { useTutorialStore } from '../../store/tutorialStore';
 
 export default function AuthScreen() {
   const { t } = useI18n();
   const { login } = useAuthStore();
+  const { setTutorialCompleted } = useTutorialStore();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [step, setStep] = useState<'phone' | 'otp'>('phone');
@@ -74,6 +76,36 @@ export default function AuthScreen() {
     handleRequestOtp();
   };
 
+  const handleSkipToHome = () => {
+    Alert.alert(
+      'Skip Login',
+      'Are you sure you want to skip login and go directly to the home screen? You can always login later from settings.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { 
+          text: 'Skip', 
+          onPress: () => {
+            // Create a mock farmer for demo purposes
+            const mockFarmer = {
+              id: 'DEMO-USER',
+              phone: 'demo@agrisense.com',
+              name: 'Demo User',
+              language: 'en' as const,
+              createdAt: new Date().toISOString(),
+            };
+            const mockToken = 'demo-token';
+            
+            // Login with demo user
+            login(mockFarmer, mockToken);
+            
+            // Skip tutorial and go directly to home
+            setTutorialCompleted(true);
+          }
+        },
+      ]
+    );
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
@@ -107,6 +139,13 @@ export default function AuthScreen() {
                     {isLoading ? t('common.loading') : t('auth.verifyOtp')}
                   </Text>
                 </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={styles.skipButton}
+                  onPress={handleSkipToHome}
+                >
+                  <Text style={styles.skipButtonText}>Skip to Home</Text>
+                </TouchableOpacity>
               </>
             ) : (
               <>
@@ -134,6 +173,13 @@ export default function AuthScreen() {
                   onPress={handleResendOtp}
                 >
                   <Text style={styles.resendText}>{t('auth.resendOtp')}</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={styles.skipButton}
+                  onPress={handleSkipToHome}
+                >
+                  <Text style={styles.skipButtonText}>Skip to Home</Text>
                 </TouchableOpacity>
               </>
             )}
@@ -211,6 +257,20 @@ const styles = StyleSheet.create({
   resendText: {
     color: '#2E7D32',
     fontSize: 14,
+  },
+  skipButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: '#2E7D32',
+    padding: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  skipButtonText: {
+    color: '#2E7D32',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
 

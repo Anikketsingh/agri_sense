@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 // Import screens
 import AuthScreen from '../screens/Auth/AuthScreen';
 import TutorialIntroScreen from '../screens/Tutorial/TutorialIntroScreen';
-import TutorialGPSScreen from '../screens/Tutorial/SimpleTutorial';
+import TutorialGPSScreen from '../screens/Tutorial/TutorialGPSScreen';
 import DashboardScreen from '../screens/Dashboard/DashboardScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import FieldsScreen from '../screens/Fields/FieldsScreen';
@@ -65,7 +65,13 @@ function MainTabs() {
 // Root Stack Navigator
 export default function AppNavigator() {
   const { isAuthenticated } = useAuthStore();
-  const { isTutorialCompleted } = useTutorialStore();
+  const { isTutorialCompleted, isIntroCompleted, isGPSCompleted } = useTutorialStore();
+
+  // Debug logging
+  console.log('AppNavigator - isAuthenticated:', isAuthenticated);
+  console.log('AppNavigator - isTutorialCompleted:', isTutorialCompleted);
+  console.log('AppNavigator - isIntroCompleted:', isIntroCompleted);
+  console.log('AppNavigator - isGPSCompleted:', isGPSCompleted);
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>

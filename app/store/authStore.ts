@@ -17,16 +17,33 @@ interface AuthState {
   updateFarmer: (updates: Partial<Farmer>) => void;
 }
 
-// Temporary simple store without persist to avoid initialization issues
-export const useAuthStore = create<AuthState>((set) => ({
-  isAuthenticated: false,
-  farmer: null,
-  token: null,
-  login: (farmer, token) => set({ isAuthenticated: true, farmer, token }),
-  logout: () => set({ isAuthenticated: false, farmer: null, token: null }),
-  updateFarmer: (updates) =>
-    set((state) => ({
-      farmer: state.farmer ? { ...state.farmer, ...updates } : null,
-    })),
-}));
+// Create store with error handling
+let authStore: any = null;
+
+try {
+  authStore = create<AuthState>((set) => ({
+    isAuthenticated: false,
+    farmer: null,
+    token: null,
+    login: (farmer, token) => set({ isAuthenticated: true, farmer, token }),
+    logout: () => set({ isAuthenticated: false, farmer: null, token: null }),
+    updateFarmer: (updates) =>
+      set((state) => ({
+        farmer: state.farmer ? { ...state.farmer, ...updates } : null,
+      })),
+  }));
+} catch (error) {
+  console.warn('Failed to create auth store:', error);
+  // Fallback store
+  authStore = create<AuthState>(() => ({
+    isAuthenticated: false,
+    farmer: null,
+    token: null,
+    login: () => {},
+    logout: () => {},
+    updateFarmer: () => {},
+  }));
+}
+
+export const useAuthStore = authStore;
 

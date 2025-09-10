@@ -85,7 +85,7 @@ export default function TutorialGPSScreen() {
   // Navigation and store access - always call hooks
   const navigation = useNavigation();
   const tutorialStore = useTutorialStore();
-  const setGPSCompleted = tutorialStore?.setGPSCompleted;
+  const setGPSCompleted = tutorialStore?.setGPSCompleted || (() => {});
 
   // Animation values
   const pointAnimation = useRef(new Animated.Value(0)).current;
@@ -103,7 +103,7 @@ export default function TutorialGPSScreen() {
   }, []);
 
   // Current step data - must be called unconditionally
-  const currentStepData = tutorialSteps[currentStep];
+  const currentStepData = tutorialSteps[currentStep] || tutorialSteps[0];
 
   // Predefined demo points for a realistic field shape
   const predefinedPoints = [
@@ -245,13 +245,20 @@ export default function TutorialGPSScreen() {
       Alert.alert(
         'Field Saved!',
         `Your field has been saved with an area of ${convertToAcres(calculatedArea)} acres.`,
-        [{ text: 'OK', onPress: () => setCurrentStep(prev => prev + 1) }]
+        [{ text: 'OK', onPress: () => {
+          // If this is the last step, complete the tutorial
+          if (currentStep === tutorialSteps.length - 1) {
+            handleComplete();
+          } else {
+            setCurrentStep(prev => prev + 1);
+          }
+        }}]
       );
     } catch (err) {
       console.warn('Failed to complete scan:', err);
       setError('Failed to complete scan');
     }
-  }, [demoPoints.length, calculatedArea, convertToAcres]);
+  }, [demoPoints.length, calculatedArea, convertToAcres, currentStep, handleComplete]);
 
   const handleNext = useCallback(() => {
     try {
@@ -259,7 +266,7 @@ export default function TutorialGPSScreen() {
       if (!currentStepData) return;
       
       // Handle step-specific actions
-      switch (currentStepData.action) {
+      switch (currentStepData?.action) {
         case 'start':
           handleStartScan();
           // Advance to next step after starting
@@ -280,15 +287,19 @@ export default function TutorialGPSScreen() {
           }, 1000);
           break;
         case 'complete':
-          handleCompleteScan();
-          // Don't advance step, let complete handler do it
+          // If this is the last step, complete the tutorial
+          if (currentStep === tutorialSteps.length - 1) {
+            handleComplete();
+          } else {
+            handleCompleteScan();
+          }
           break;
       }
     } catch (err) {
       console.warn('Failed to handle next step:', err);
       setError('Failed to handle next step');
     }
-  }, [currentStep, handleStartScan, handleAddPoint, handleCalculateArea, handleCompleteScan]);
+  }, [currentStep, handleStartScan, handleAddPoint, handleCalculateArea, handleCompleteScan, handleComplete]);
 
   const handlePrevious = useCallback(() => {
     try {
@@ -303,17 +314,18 @@ export default function TutorialGPSScreen() {
 
   const handleComplete = useCallback(() => {
     try {
+      console.log('Completing GPS tutorial...');
       if (setGPSCompleted) {
         setGPSCompleted(true);
+        console.log('GPS tutorial completed, isTutorialCompleted should be true now');
       }
-      if (navigation?.navigate) {
-        navigation.navigate('MainTabs' as never);
-      }
+      // The navigation will happen automatically when isTutorialCompleted becomes true
+      // No need to manually navigate - the AppNavigator will handle this
     } catch (err) {
       console.warn('Failed to complete tutorial:', err);
       setError('Failed to complete tutorial');
     }
-  }, [setGPSCompleted, navigation]);
+  }, [setGPSCompleted]);
 
   const handleSkip = useCallback(() => {
     try {
@@ -459,6 +471,31 @@ export default function TutorialGPSScreen() {
     );
   };
 
+  // Early return if not initialized or if there's an error
+  if (!isInitialized) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.loadingContainer}>
+          <Text style={styles.loadingText}>Loading...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (error) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorTitle}>Error</Text>
+          <Text style={styles.errorMessage}>{error}</Text>
+          <TouchableOpacity style={styles.retryButton} onPress={() => setError(null)}>
+            <Text style={styles.retryButtonText}>Retry</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
@@ -490,15 +527,15 @@ export default function TutorialGPSScreen() {
       <View style={styles.content}>
         {/* Step Info */}
         <View style={styles.stepInfo}>
-          <View style={[styles.stepIcon, { backgroundColor: currentStepData.color + '20' }]}>
-            <Ionicons name={currentStepData.icon} size={40} color={currentStepData.color} />
+          <View style={[styles.stepIcon, { backgroundColor: (currentStepData?.color || '#2E7D32') + '20' }]}>
+            <Ionicons name={currentStepData?.icon || 'help'} size={40} color={currentStepData?.color || '#2E7D32'} />
           </View>
           
-          <Text style={styles.stepTitle}>{currentStepData.title}</Text>
-          <Text style={styles.stepDescription}>{currentStepData.description}</Text>
+          <Text style={styles.stepTitle}>{currentStepData?.title || 'Tutorial Step'}</Text>
+          <Text style={styles.stepDescription}>{currentStepData?.description || 'Loading...'}</Text>
           
           {/* Progress indicator for add points step */}
-          {currentStepData.action === 'add_points' && (
+          {currentStepData?.action === 'add_points' && (
             <View style={styles.progressInfo}>
               <Text style={styles.progressText}>
                 Points: {demoPoints.length}/8 • Need at least 3 for boundary
@@ -544,7 +581,7 @@ export default function TutorialGPSScreen() {
             style={[
               styles.demoButton,
               { 
-                backgroundColor: currentStepData.color,
+                backgroundColor: currentStepData?.color || '#2E7D32',
                 opacity: (isScanning || currentStep === 0) ? 1 : 0.5,
               }
             ]}
@@ -553,15 +590,15 @@ export default function TutorialGPSScreen() {
           >
             <Ionicons 
               name={
-                currentStepData.action === 'start' ? 'play' :
-                currentStepData.action === 'add_points' ? 'add' :
-                currentStepData.action === 'calculate' ? 'calculator' :
+                currentStepData?.action === 'start' ? 'play' :
+                currentStepData?.action === 'add_points' ? 'add' :
+                currentStepData?.action === 'calculate' ? 'calculator' :
                 'checkmark'
               } 
               size={20} 
               color="#fff" 
             />
-            <Text style={styles.demoButtonText}>{currentStepData.buttonText}</Text>
+            <Text style={styles.demoButtonText}>{currentStepData?.buttonText || 'Next'}</Text>
           </TouchableOpacity>
           
           {isScanning && currentStep > 0 && (
@@ -585,7 +622,7 @@ export default function TutorialGPSScreen() {
           style={[
             styles.navButton,
             styles.nextButton,
-            { backgroundColor: currentStepData.color }
+            { backgroundColor: currentStepData?.color || '#2E7D32' }
           ]}
           onPress={handleNext}
         >

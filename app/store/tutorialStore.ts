@@ -10,35 +10,53 @@ interface TutorialState {
   resetTutorial: () => void;
 }
 
-// Temporary simple store without persist to avoid initialization issues
-export const useTutorialStore = create<TutorialState>((set) => ({
-  isIntroCompleted: false,
-  isGPSCompleted: false,
-  isTutorialCompleted: false,
-  
-  setIntroCompleted: (completed: boolean) =>
-    set((state) => ({
-      isIntroCompleted: completed,
-      isTutorialCompleted: completed && state.isGPSCompleted,
-    })),
-  
-  setGPSCompleted: (completed: boolean) =>
-    set((state) => ({
-      isGPSCompleted: completed,
-      isTutorialCompleted: state.isIntroCompleted && completed,
-    })),
-  
-  setTutorialCompleted: (completed: boolean) =>
-    set({
-      isTutorialCompleted: completed,
-      isIntroCompleted: completed,
-      isGPSCompleted: completed,
-    }),
-  
-  resetTutorial: () =>
-    set({
-      isIntroCompleted: false,
-      isGPSCompleted: false,
-      isTutorialCompleted: false,
-    }),
-}));
+// Create store with error handling
+let tutorialStore: any = null;
+
+try {
+  tutorialStore = create<TutorialState>((set) => ({
+    isIntroCompleted: false,
+    isGPSCompleted: false,
+    isTutorialCompleted: false,
+    
+    setIntroCompleted: (completed: boolean) =>
+      set((state) => ({
+        isIntroCompleted: completed,
+        isTutorialCompleted: completed && state.isGPSCompleted,
+      })),
+    
+    setGPSCompleted: (completed: boolean) =>
+      set((state) => ({
+        isGPSCompleted: completed,
+        isTutorialCompleted: state.isIntroCompleted && completed,
+      })),
+    
+    setTutorialCompleted: (completed: boolean) =>
+      set({
+        isTutorialCompleted: completed,
+        isIntroCompleted: completed,
+        isGPSCompleted: completed,
+      }),
+    
+    resetTutorial: () =>
+      set({
+        isIntroCompleted: false,
+        isGPSCompleted: false,
+        isTutorialCompleted: false,
+      }),
+  }));
+} catch (error) {
+  console.warn('Failed to create tutorial store:', error);
+  // Fallback store
+  tutorialStore = create<TutorialState>(() => ({
+    isIntroCompleted: false,
+    isGPSCompleted: false,
+    isTutorialCompleted: false,
+    setIntroCompleted: () => {},
+    setGPSCompleted: () => {},
+    setTutorialCompleted: () => {},
+    resetTutorial: () => {},
+  }));
+}
+
+export const useTutorialStore = tutorialStore;
